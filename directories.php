@@ -1,5 +1,5 @@
 <?php
-const ROOT = "/sistema-consultas";
+const ROOT = "";
 // const SERVER_ROOT = $_SERVER['SERVER_NAME'] . ROOT;
 const SERVER_ROOT = "localhost/sistema-consultas";
 
