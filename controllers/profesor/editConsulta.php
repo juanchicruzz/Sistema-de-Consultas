@@ -7,12 +7,12 @@ require_once(DIR_REPOSITORIES . "/consultasRepository.php");
         $horarioAlt = strval($_POST['horarioAlternativo']);
         $modalidad = $_POST['modalidad'];
         $idConsulta = $_POST['idConsulta'];
-        $url = $_POST['URL'] == "0" ? null : $_POST['URL'];
+        $url = $_POST['ubicacion'] == "0" ? null : $_POST['ubicacion'];
 
         
         $consulta = $ConsultaRepository->getConsultaById($idConsulta)->fetch_array();
         if($consulta['modalidad'] == $modalidad 
-            && $consulta['URL'] == $url 
+            && $consulta['ubicacion'] == $url 
             && $consulta['horarioAlternativo'] == $horarioAlt){
                 header("Location: " . REDIR_VIEWS . "/profesor/ConsultasModBloq.php?p=".$consulta['idProfesor']."&m=".$consulta['idMateria']."&c=".$consulta['idCarrera']);
                 exit;
