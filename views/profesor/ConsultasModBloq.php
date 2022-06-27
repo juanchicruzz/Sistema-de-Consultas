@@ -90,7 +90,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
                                 <?php if($row['estado'] == "Bloqueada"){
                                     echo '<td><a href="'.REDIR_CONTROLLERS.'/profesor/desbloqConsulta.php?id='. $row["idConsulta"] .' "><i class="fa-solid fa-unlock" style="color:green;"></i></a></td>';
                                 }else{
-                                    echo '<td><a href="ConsultaBloquear.php?id='. $row["idConsulta"] .' "><i class="fa-solid fa-lock" style="color:red;"></i></a></td>';
+                                    echo '<td><a href="consultaBloquear.php?id='. $row["idConsulta"] .' "><i class="fa-solid fa-lock" style="color:red;"></i></a></td>';
                                 } ?>
                             </tr>
                     <?php }
