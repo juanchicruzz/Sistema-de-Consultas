@@ -72,7 +72,7 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
                         <th scope="col">Fecha</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Modalidad</th>
-                        <th scope="col">URL</th>
+                        <th scope="col">Ubicacion</th>
                         <th scope="col">Horario Alternativo</th>
                         <th scope="col">Bloquear</th>
                     </tr>
@@ -88,7 +88,7 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
                                 <td><?= Utils::convertirFechaFromSQL($row['fecha']) ?></td>
                                 <td><?= $row['estado'] ?></td>
                                 <td><?= $row['modalidad'] ?></td>
-                                <td><?= $row['url'] ?></td>
+                                <td><?= $row['ubicacion'] ?></td>
                                 <td><?= $row['horarioAlternativo'] ?></td>
                                 <td>
                                     <a href="ConsultaBloquear.php?id='<?= $row["idConsulta"] ?>' ">

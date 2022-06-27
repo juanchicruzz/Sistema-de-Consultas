@@ -68,7 +68,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                             <th scope="col">Fecha</th>
                             <th scope="col">Estado</th>
                             <th scope="col">Modalidad</th>
-                            <th scope="col">URL</th>
+                            <th scope="col">Ubicacion</th>
                             <th scope="col">Horario Alternativo</th>
                             <th scope="col">Desbloquear</th>
                         </tr>
@@ -84,7 +84,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                                     <td><?= Utils::convertirFechaFromSQL($row['fecha']) ?></td>
                                     <td><?= $row['estado'] ?></td>
                                     <td><?= $row['modalidad'] ?></td>
-                                    <td><?= $row['url'] ?></td>
+                                    <td><?= $row['ubicacion'] ?></td>
                                     <td><?= $row['horarioAlternativo'] ?></td>
                                     <td>
                                         <a href="<?= REDIR_CONTROLLERS ?>'/profesor/desbloqConsulta.php?id='. $row[" idConsulta"] .' ">
