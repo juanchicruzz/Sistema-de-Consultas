@@ -7,6 +7,7 @@ require_once(DIR_REPOSITORIES . "/consultasRepository.php");
         $motivo = strval($_POST['motivo']);
         $idConsulta = $_POST['idConsulta'];
         $consulta = $ConsultaRepository->getConsultaById($idConsulta)->fetch_array();
+        echo $idConsulta;
       
         $result_query = $ConsultaRepository->bloquearConsulta($motivo,$idConsulta); 
         if(!$result_query){
