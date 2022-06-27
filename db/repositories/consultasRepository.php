@@ -127,7 +127,7 @@ class ConsultaRepository extends Repository{
 
     function getConsultasBloqueadasByProfesor($idProfesor){
         $query = "SELECT c.fecha, c.estado, c.modalidad, 
-        ifNull(c.ubicacion, 'No aplica') as url, 
+        ifNull(c.ubicacion, 'No aplica') as ubicacion, 
         ifNull(c.horarioAlternativo, 'No aplica') as horarioAlternativo, c.idConsulta
         FROM consultas c
         WHERE idProfesor = $idProfesor AND estado = 'Bloqueada';";
@@ -136,7 +136,7 @@ class ConsultaRepository extends Repository{
 
     function getConsultasActivasByProfesor($idProfesor){
         $query = "SELECT c.fecha, c.estado, c.modalidad, 
-        ifNull(c.ubicacion, 'No aplica') as url, 
+        ifNull(c.ubicacion, 'No aplica') as ubicacion, 
         ifNull(c.horarioAlternativo, 'No aplica') as horarioAlternativo, c.idConsulta
         FROM consultas c
         WHERE idProfesor = $idProfesor AND estado <> 'Bloqueada';";
