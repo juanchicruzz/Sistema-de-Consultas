@@ -91,7 +91,7 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
                                 <td><?= $row['ubicacion'] ?></td>
                                 <td><?= $row['horarioAlternativo'] ?></td>
                                 <td>
-                                    <a href="ConsultaBloquear.php?id='<?= $row["idConsulta"] ?>' ">
+                                    <a href="consultaBloquear.php?id='<?= $row["idConsulta"] ?>' ">
                                         <i class="fa-solid fa-lock" style="color:red;"></i>
                                     </a>
                                 </td>
