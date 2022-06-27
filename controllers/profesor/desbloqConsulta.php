@@ -18,6 +18,6 @@ require_once(DIR_REPOSITORIES . "/consultasRepository.php");
         }
         $_SESSION['message'] = "Consulta Desbloqueada exitosamente";
         $_SESSION['message_type'] = "success";
-        header("Location: " . REDIR_VIEWS . "/profesor/ConsultasModBloq.php?p=".$consulta['idProfesor']."&m=".$consulta['idMateria']."&c=".$consulta['idCarrera']);
+        header("Location: " . REDIR_VIEWS . "/profesor/consultasModBloq.php?p=".$consulta['idProfesor']."&m=".$consulta['idMateria']."&c=".$consulta['idCarrera']);
         exit;
     }
