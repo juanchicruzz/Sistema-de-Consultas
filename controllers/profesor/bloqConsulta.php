@@ -9,7 +9,8 @@ require_once(DIR_REPOSITORIES . "/consultasRepository.php");
         $consulta = $ConsultaRepository->getConsultaById($idConsulta)->fetch_array();
         echo $idConsulta;
       
-        $result_query = $ConsultaRepository->bloquearConsulta($motivo,$idConsulta); 
+        $result_query = $ConsultaRepository->bloquearConsulta($motivo,$idConsulta);
+        echo $result_query;
         if(!$result_query){
             die("Update query failed");
         }
