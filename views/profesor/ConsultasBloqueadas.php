@@ -87,7 +87,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                                     <td><?= $row['ubicacion'] ?></td>
                                     <td><?= $row['horarioAlternativo'] ?></td>
                                     <td>
-                                        <a href="<?= REDIR_CONTROLLERS ?>'/profesor/desbloqConsulta.php?id='. $row[" idConsulta"] .' ">
+                                        <a href="<?= REDIR_CONTROLLERS ?>/profesor/desbloqConsulta.php?id=<?=$row["idConsulta"]?>">
                                             <i class=" fa-solid fa-unlock" style="color:green;"></i>
                                         </a>
                                     </td>
