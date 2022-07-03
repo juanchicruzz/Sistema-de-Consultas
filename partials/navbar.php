@@ -12,7 +12,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="<?=REDIR_INDEX?>" class="nav-link px-2 link-light">Inicio</a></li>
           <li><a href="<?=REDIR_VIEWS?>/consultas.php" class="nav-link px-2 link-light">Consultas</a></li>
-          <li><a href="<?=REDIR_VIEWS?>/inscripciones.php" class="nav-link px-2 link-light">Mis Inscripciones</a></li>
+          <li><a href="<?=REDIR_VIEWS?>/alumno/misInscripciones.php" class="nav-link px-2 link-light">Mis Inscripciones</a></li>
         </ul>
 
         <div class="dropdown text-end">

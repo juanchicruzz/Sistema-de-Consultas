@@ -112,18 +112,6 @@ class ConsultaRepository extends Repository{
         return $this->getResults($query);
     }
 
-    function getConsultasByPrimaryKey($idProfesor, $idMateria, $idCarrera){
-        $query = "SELECT c.fecha, c.estado, c.modalidad, 
-
-        ifNull(c.ubicacion, 'No definido') as ubicacion, 
-        ifNull(c.horarioAlternativo, pm.horarioFijo) as horario, c.idConsulta
-        FROM consultas c
-        INNER JOIN profesor_materia pm 
-			ON c.idCarrera = pm.idCarrera AND c.idProfesor = pm.idProfesor AND c.idMateria = pm.idMateria
-      WHERE c.idCarrera = $idCarrera AND c.idProfesor = $idProfesor AND c.idMateria = $idMateria;";
-      
-        return $this->getResults($query);
-    }
 
     function getConsultasBloqueadasByProfesor($idProfesor){
         $query = "SELECT c.fecha, c.estado, c.modalidad, 
@@ -224,6 +212,27 @@ class ConsultaRepository extends Repository{
             $query,
             [$idProfesor,$fechaInicio,$fechaFin]
         );
+    }
+
+    function getConsultasByPrimaryKey($idProfesor, $idMateria, $idCarrera){
+        $query = "SELECT c.idConsulta, upper(pm.dia) as dia, c.fecha, c.estado, c.modalidad, 
+        ifNull(c.ubicacion, 'No definido') as ubicacion, 
+        ifNull(c.horarioAlternativo, pm.horarioFijo) as horario
+        FROM consultas c
+        INNER JOIN profesor_materia pm 
+			ON c.idCarrera = pm.idCarrera AND c.idProfesor = pm.idProfesor AND c.idMateria = pm.idMateria
+      WHERE c.idCarrera = $idCarrera AND c.idProfesor = $idProfesor AND c.idMateria = $idMateria";
+        return $this->getResults($query);
+    }
+    
+
+
+    function getIdConsultaFromPKandFecha($idProfesor, $idMateria, $idCarrera, $fecha){
+        $query = "SELECT idConsulta FROM consultas c 
+        WHERE c.idCarrera = $idCarrera AND c.idProfesor = $idProfesor 
+        AND c.idMateria = $idMateria AND c.fecha = '$fecha';";
+      
+        return $this->getResults($query);
     }
 }
 
