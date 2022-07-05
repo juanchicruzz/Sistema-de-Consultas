@@ -32,7 +32,7 @@ include(DIR_HEADER)
             }
         ?>
         <br>
-       <table class="table table-bordered">
+       <table id='tableValidarDocente' class="table table-bordered">
            <thead class="thead-dark">
                <th scope="col">ID</th>
                <th scope="col">Email</th>
