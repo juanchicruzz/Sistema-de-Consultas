@@ -8,7 +8,7 @@ Security::verifyUserIsAdmin();
 include(DIR_HEADER)
 ?>
 
-<script type="text/javascript" charset="utf8" src="../tablas/crearTablaConsultasBloqueadas.js"></script>
+<script type="text/javascript" charset="utf8" src="../tablas/downloadTabla.js"></script>
 <script type="text/javascript" charset="utf8" src="../tablas/crearTablaConsultasBloqueadas.js"></script>
 <script> crearTabla() </script>
 
