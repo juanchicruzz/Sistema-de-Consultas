@@ -82,6 +82,9 @@ include(DIR_HEADER)
             ?>
            </tbody>
        </table>
+       <input class="btn btn-primary" type="button" id="btnExport" value="Descargar PDF" onclick="Export('tableValidarDocente','docentes_a_validar')" />
+       <br>
+       <br>
     </div>
 
 <?php include(DIR_FOOTER);?>
