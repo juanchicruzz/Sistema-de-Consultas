@@ -224,6 +224,7 @@ class ConsultaRepository extends Repository{
       WHERE c.idCarrera = $idCarrera AND c.idProfesor = $idProfesor AND c.idMateria = $idMateria";
         return $this->getResults($query);
     }
+
     
 
 
@@ -233,6 +234,18 @@ class ConsultaRepository extends Repository{
         AND c.idMateria = $idMateria AND c.fecha = '$fecha';";
       
         return $this->getResults($query);
+    }
+
+    function getInfoConsultaById($idConsulta){
+        $query = "SELECT c.idConsulta, upper(pm.dia) as dia, c.fecha, c.modalidad, 
+        ifNull(c.ubicacion, 'No definido') as ubicacion, 
+        ifNull(c.horarioAlternativo, pm.horarioFijo) as horario, 
+        c.idprofesor profesor 
+        FROM consultas c
+        INNER JOIN profesor_materia pm 
+        WHERE c.idConsulta = '$idConsulta';";
+        return $this->getResults($query);
+
     }
 }
 

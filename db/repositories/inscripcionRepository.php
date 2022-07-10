@@ -1,23 +1,39 @@
 <?php
 require_once("abstractRepository.php");
 
-class InscripcionRepository extends Repository{
+class InscripcionRepository extends Repository
+{
 
     private const ENTITY = "inscripciones";
 
-    function getAllMaterias(){
+    function getAllMaterias()
+    {
         return $this->getAll(self::ENTITY);
     }
 
-    function getInscripcionByConsultaAndAlumno($idConsulta, $idAlumno){
+    function getInscripcionByConsultaAndAlumno($idConsulta, $idAlumno)
+    {
         $query = "
-            SELECT * FROM ".self::ENTITY
-            ." WHERE idAlumno = '".$idAlumno."' 
-            AND idConsulta = '".$idConsulta."';" ;
+            SELECT * FROM " . self::ENTITY
+            . " WHERE idAlumno = '" . $idAlumno . "' 
+            AND idConsulta = '" . $idConsulta . "';";
         return $this->getResults($query);
     }
 
-    function getInscripcionesByAlumno($idAlumno){
+    function getInscripcionesByConsulta($idConsulta)
+    {
+        $query = "SELECT i.motivoConsulta , ifnull(u.nombre + ' ' + u.apellido, u.email) alumno , u.legajo 
+         FROM inscripciones i 
+         INNER JOIN usuarios u 
+         ON i.idAlumno = u.idUsuario 
+         INNER JOIN consultas c 
+         ON i.idConsulta = c.idConsulta 
+        WHERE i.idConsulta = '" . $idConsulta . "';";
+        return $this->getResults($query);
+    }
+
+    function getInscripcionesByAlumno($idAlumno)
+    {
         $query = "SELECT m.descripcionMateria, car.nombreCarrera, pm.dia, c.fecha, c.estado, 
         c.modalidad, c.ubicacion, ifnull(horarioAlternativo, pm.horarioFijo) as horario, 
         i.motivoConsulta, i.fechaInscripcion, i.idConsulta
@@ -31,30 +47,35 @@ class InscripcionRepository extends Repository{
         INNER JOIN carreras car
             ON pm.idCarrera = car.idCarrera
         WHERE i.idAlumno = $idAlumno 
-        ORDER BY c.fecha ASC;" ;
+        ORDER BY c.fecha ASC;";
         return $this->getResults($query);
     }
 
-    function getIdsInscripcionesByAlumno($idAlumno){
+    function getIdsInscripcionesByAlumno($idAlumno)
+    {
         $query = "
-            SELECT idConsulta FROM ".self::ENTITY
-            ." WHERE idAlumno = '".$idAlumno."' ;" ;
+            SELECT idConsulta FROM " . self::ENTITY
+            . " WHERE idAlumno = '" . $idAlumno . "' ;";
         return $this->getResults($query);
     }
 
-    function inscribirAlumnoEnConsulta($idAlumno, $idConsulta, $motivo){
-        $query = "INSERT INTO ".self::ENTITY
-            ." (idAlumno, idConsulta, motivoConsulta) VALUES (?, ?, ?);" ;
+    function inscribirAlumnoEnConsulta($idAlumno, $idConsulta, $motivo)
+    {
+        $query = "INSERT INTO " . self::ENTITY
+            . " (idAlumno, idConsulta, motivoConsulta) VALUES (?, ?, ?);";
         return $this->executeQuery(
-            $query, [$idAlumno, $idConsulta, $motivo]);
+            $query,
+            [$idAlumno, $idConsulta, $motivo]
+        );
     }
 
-    function darDeBajaAlumnoEnConsulta($idAlumno, $idConsulta){
-        $query = "DELETE FROM  ".self::ENTITY." 
-        WHERE idAlumno = ? AND idConsulta = ?;" ;
+    function darDeBajaAlumnoEnConsulta($idAlumno, $idConsulta)
+    {
+        $query = "DELETE FROM  " . self::ENTITY . " 
+        WHERE idAlumno = ? AND idConsulta = ?;";
         return $this->executeQuery(
-            $query, [$idAlumno, $idConsulta]);
+            $query,
+            [$idAlumno, $idConsulta]
+        );
     }
 }
-
-?>
