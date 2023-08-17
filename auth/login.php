@@ -92,12 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="invalid-feedback"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">
-                <label>Contraseña</label>
+                <label>Password</label>
                 <input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" value="Ingresar">
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
             </div>
             <p>¿No tenes una cuenta aún? <br> <a href="register.php">Registrate ahora.</a></p>
         </form>
