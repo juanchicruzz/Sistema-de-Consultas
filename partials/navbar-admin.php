@@ -10,7 +10,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="<?=REDIR_INDEX?>" class="nav-link px-2 link-light">Inicio</a></li>
-          <li><a href="<?=REDIR_VIEWS?>/admin/users.php" class="nav-link px-2 link-light">ABM Alumnos</a></li>
+          <li><a href="<?=REDIR_VIEWS?>/admin/users.php" class="nav-link px-2 link-light">ABM Usuarios</a></li>
           <li>
             <a href="#" class="d-block link-light text-decoration-none dropdown-toggle nav-link px-2 link-light" id="dropdownConsultas" data-bs-toggle="dropdown" aria-expanded="false">
             Consultas

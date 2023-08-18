@@ -51,13 +51,19 @@ include(DIR_HEADER)
                 $UserRepo = new UserRepository();
                 $result = $UserRepo->getAllUsers();
                 while($row = $result->fetch_array()){
+                    $validado = "";
+                    if($row['descripcionRol']=="profesor"){
+                        $idValidado = $row['validado'];
+                        $validado = $idValidado == 1 ? " VALIDADO" : " NO VALIDADO";
+                }
+
             ?>
 
                 <tr>
                     <td><?=$row['idUsuario']?></td>
                     <td><?=$row['email']?></td>
                     <td><?=$row['legajo']?></td>
-                    <td><?=strtoupper($row['descripcionRol'])?></td>
+                    <td><?=strtoupper($row['descripcionRol'])?><?=$validado?></td>
                     <td>
                         <a href="editUser.php?id=<?=$row['idUsuario']?>" class="btn btn-warning">
                             <i class="fas fa-pen"></i>
@@ -90,6 +96,7 @@ include(DIR_HEADER)
                     </td>
                 </tr>
             <?php
+                $validado = "";
                 }
             ?>
            </tbody>
