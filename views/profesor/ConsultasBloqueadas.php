@@ -20,12 +20,13 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
     crearTabla()
 </script>
 
-<div class="container">
+<div class="container p-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h1>Desbloquear Consultas</h1>
+            <h1 style="text-align: center;">Desbloquear Consultas</h1>
         </div>
-        <form action="<?= REDIR_CONTROLLERS . "/profesor/desbloqSemana.php" ?>" method="POST">
+        <br>
+        <form style="padding-bottom: 30px;" action="<?= REDIR_CONTROLLERS . "/profesor/desbloqSemana.php" ?>" method="POST">
             <div class="row justify-content-center">
                 <div class="col-md-6 border p-3  bg-light ">
                     <div class="form-group mb-3">Fecha Inicio
@@ -40,7 +41,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                 </div>
             </div>
         </form>
-
+        <hr>
         <?php
         if (isset($_SESSION['message'])) {
         ?>
@@ -56,10 +57,11 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
         }
         ?>
         <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h1>Consultas Bloqueadas</h1>
+            <div class="col-md-6">
+                <h1 style="text-align: center;">Consultas Bloqueadas</h1>
+            </div>
         </div>
-        </div>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <table id="tablaInscripcion" class="display table table-striped table-hover" id="table_id">
@@ -87,7 +89,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                                     <td><?= $row['ubicacion'] ?></td>
                                     <td><?= $row['horarioAlternativo'] ?></td>
                                     <td>
-                                        <a href="<?= REDIR_CONTROLLERS ?>/profesor/desbloqConsulta.php?id=<?=$row["idConsulta"]?>">
+                                        <a href="<?= REDIR_CONTROLLERS ?>/profesor/desbloqConsulta.php?id=<?= $row["idConsulta"] ?>">
                                             <i class=" fa-solid fa-unlock" style="color:green;"></i>
                                         </a>
                                     </td>

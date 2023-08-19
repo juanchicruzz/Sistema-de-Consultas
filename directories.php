@@ -29,6 +29,7 @@ define('REDIR_INDEX', ROOT . "/index.php");
 define('REDIR_HEADER', ROOT . "/partials/header.php");
 define('REDIR_FOOTER', ROOT . "/partials/footer.php");
 define('REDIR_PARTIALS', ROOT . "/partials");
+define('DIR_CSS', ROOT . "/css");
 
 define('REDIR_AUTH', ROOT . "/auth");
 define('REDIR_CONTROLLERS', ROOT . "/controllers");

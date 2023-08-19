@@ -22,10 +22,10 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
 <div class="container p-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h1>Bloquear Consultas</h1>
+            <h1 style="text-align: center;">Bloquear Consultas</h1>
         </div>
     </div>
-
+    <br>
 
     <form action="<?= REDIR_CONTROLLERS . "/profesor/bloqSemana.php" ?>" method="POST">
         <div class="row justify-content-center">
@@ -45,11 +45,14 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
             </div>
         </div>
     </form>
+    <br>
+    <hr>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h1>Consultas Activas</h1>
+            <h1 style="text-align: center;">Consultas Activas</h1>
         </div>
     </div>
+    <br>
     <?php
     if (isset($_SESSION['message'])) {
     ?>

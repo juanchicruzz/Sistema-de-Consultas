@@ -10,21 +10,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <?php require_once(DIR_HEADER); ?>
 
-<style>
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    /* Estilos para el contenido principal */
-    .container {
-        min-height: 72.8%;
-        margin-bottom: -30px;
-        padding-bottom: 50px;
-    }
-</style>
-
 <div class="container">
     <div class="row">
         <h1 class="my-5">Bienvenido al sitio! <b><?php echo htmlspecialchars($_SESSION["email"]); ?></b></h1>
@@ -39,4 +24,5 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </div>
 </div>
+<br><br><br><br>
 <?php include(DIR_FOOTER); ?>

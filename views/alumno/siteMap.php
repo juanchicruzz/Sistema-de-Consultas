@@ -6,6 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 <?php require_once(DIR_HEADER);  ?>
 
 <link rel="stylesheet" href="<?= REDIR_VIEWS ?>/css/siteMap.css">
+<link rel="stylesheet" href="<?= REDIR_VIEWS ?>/css/siteMap.css">
 
 <body>
     <div class="container">
@@ -22,6 +23,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         </nav>
     </div>
 </body>
-<br><br><br><br><br><br><br><br>
 
 <?php include(DIR_FOOTER); ?>
