@@ -60,7 +60,6 @@ $consultas = $consultaRepository->getConsultasByProfesor($_SESSION["id"]);
 </div>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 <?php include(DIR_FOOTER); ?>
