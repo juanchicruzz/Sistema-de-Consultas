@@ -29,10 +29,12 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-fw fa-user rounded-circle" alt="mdo" width="32" height="32"></i>
         </a>
+
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li class="dropdown-item readonly"><strong><?= $_SESSION['email'] ?></strong></li>
           <li><a class="dropdown-item" href="<?= REDIR_VIEWS ?>/admin/viewProfile.php">Perfil</a></li>
           <li><a class="dropdown-item" href="#">Configuración</a></li>
+
           <li>
             <hr class="dropdown-divider">
           </li>

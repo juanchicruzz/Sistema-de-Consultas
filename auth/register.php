@@ -147,7 +147,7 @@ function isEmailValid($email)
                         <input type="submit" class="btn btn-primary" value="Registrarme">
                         <input type="reset" class="btn btn-secondary ml-2" value="Borrar">
                     </div>
-                    <p>¿Ya tenes una cuenta? <a href="login.php">Logueate acá.</a>.</p>
+                    <p>¿Ya tenes una cuenta? <a href="login.php">Logueate acá.</a></p>
             </div>
 
 
