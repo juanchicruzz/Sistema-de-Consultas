@@ -11,6 +11,9 @@ define('DIR_NAV_BAR', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/partials/navbar.php")
 define('DIR_NAV_BAR_ADMIN', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/partials/navbar-admin.php");
 define('DIR_NAV_BAR_PROFESSOR', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/partials/navbar-prof.php");
 define('DIR_PARTIALS', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/partials");
+define('DIR_SITE_MAP_ADMIN', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/views/admin/siteMap.php");
+define('DIR_SITE_MAP_ALUMNO', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/views/alumno/siteMap.php");
+define('DIR_SITE_MAP_PROFESSOR', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/views/profesor/siteMap.php");
 
 // CARPETAS PARA INCLUIR ARCHIVOS
 
