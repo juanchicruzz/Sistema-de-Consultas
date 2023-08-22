@@ -49,5 +49,18 @@ Class Security {
             exit;
         }
     }
+    
+    static function verifyUserIsStudent(){
+        if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true)
+        {
+            header("Location: " . REDIR_AUTH . "/login.php");
+            exit;
+        }
+        if(isset($_SESSION['userType']) && $_SESSION['userType'] != self::ALUMN_TYPE)
+        {
+            header("Location: " . REDIR_INDEX);
+            exit;
+        }
+    }
 }
 ?>

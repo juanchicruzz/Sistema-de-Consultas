@@ -21,6 +21,7 @@ define('DIR_REPOSITORIES', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/db/repositories"
 define('DIR_SECURITY', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/controllers/security.php");
 define('DIR_VIEWS', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/views");
 define('DIR_PHPMAILER', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/composer");
+define('DIR_EMAIL_HELPER', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/email/EmailHelper.php");
 
 // REDIRECT (NO PARA INCLUIR ARCHIVOS)
 define('REDIR_INDEX', ROOT . "/index.php");

@@ -4,7 +4,7 @@ require_once(DIR_REPOSITORIES . "/consultasRepository.php");
 require_once(DIR_REPOSITORIES . "/inscripcionRepository.php");
 require_once(DIR_HEADER);
 require_once(DIR_SECURITY);
-Security::verifyUser("1");
+Security::verifyUserIsStudent();
 
 $inscripcionRepository = new InscripcionRepository();
 $consultaRepository = new ConsultaRepository();
