@@ -20,6 +20,7 @@ define('DIR_DB', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/db");
 define('DIR_REPOSITORIES', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/db/repositories");
 define('DIR_SECURITY', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/controllers/security.php");
 define('DIR_VIEWS', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/views");
+define('DIR_PHPMAILER', $_SERVER['DOCUMENT_ROOT'] . ROOT . "/composer");
 
 // REDIRECT (NO PARA INCLUIR ARCHIVOS)
 define('REDIR_INDEX', ROOT . "/index.php");
