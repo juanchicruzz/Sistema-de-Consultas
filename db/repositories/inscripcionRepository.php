@@ -6,7 +6,7 @@ class InscripcionRepository extends Repository
 
     private const ENTITY = "inscripciones";
 
-    function getAllMaterias()
+    function getAllInscripciones()
     {
         return $this->getAll(self::ENTITY);
     }
@@ -22,7 +22,7 @@ class InscripcionRepository extends Repository
 
     function getInscripcionesByConsulta($idConsulta)
     {
-        $query = "SELECT i.motivoConsulta , ifnull(u.nombre + ' ' + u.apellido, u.email) alumno , u.legajo 
+        $query = "SELECT i.motivoConsulta , ifnull(u.nombre + ' ' + u.apellido, u.email) alumno , u.legajo, u.email 
          FROM inscripciones i 
          INNER JOIN usuarios u 
          ON i.idAlumno = u.idUsuario 
