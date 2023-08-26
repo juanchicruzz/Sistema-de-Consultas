@@ -8,7 +8,7 @@ $consultaRepository = new ConsultaRepository();
 $result = $consultaRepository->getConsultaById($_GET['id'])->fetch_array();
 
 // Si un profesor quiere editar una consulta que no es suya, no se le permite entrar
-if(!($_SESSION['id'] == $result['idProfesor'])){
+if (!($_SESSION['id'] == $result['idProfesor'])) {
     header("Location: " . REDIR_VIEWS . "/profesor/ConsultasProfesor.php");
     exit;
 }
@@ -23,38 +23,38 @@ include(DIR_HEADER);
         </div>
     </div>
     <form action="<?= REDIR_CONTROLLERS . "/profesor/editConsulta.php" ?>" method="POST">
-        <div class="row justify-content-center">
-            <div class="col-md-6 border p-3  bg-light ">
-                <div class="form-group mb-3">Horario Alternativo
-                    <input type="time" name="horarioAlternativo" class="form-control" placeholder="Hora Alternativo" autofocus value="<?= $result['horarioAlternativo'] ?>">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 border p-3  bg-light ">
+                    <div class="mb-3">
+                        <label for="horarioAlternativo" class="form-label">Horario Alternativo</label>
+                        <input type="time" id="horarioAlternativo" name="horarioAlternativo" class="form-control" placeholder="Hora Alternativa" autofocus value="<?= $result['horarioAlternativo'] ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalidadSelect" class="form-label">Modalidad</label>
+                        <select name="modalidad" class="form-control" id="modalidadSelect" onchange="updatePlaceholder()">
+                            <option value="Presencial" <?= ($result['modalidad'] === "Presencial") ? 'selected' : '' ?>>Presencial</option>
+                            <option value="Virtual" <?= ($result['modalidad'] === "Virtual") ? 'selected' : '' ?>>Virtual</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ubicacionInput" class="form-label">Ubicación</label>
+                        <input type="text" id="ubicacionInput" name="ubicacion" class="form-control" value="<?= $result['ubicacion'] ?>">
+                    </div>
+                    <button class="btn btn-success btn-block" type="submit" name="edit_consulta">Guardar Cambios</button>
+                    <input name="idConsulta" type="hidden" value="<?= $_GET['id'] ?>">
                 </div>
-                <div class="form-group mb-3">Modalidad
-                    <select name="modalidad" class="form-control" id="modalidadSelect" onchange="placeholder()">
-                        <option <?php if ($result['modalidad'] == "Presencial") {
-                                    echo "Selected";
-                                } ?> value="Presencial">Presencial</option>
-                        <option <?php if ($result['modalidad'] == "Virtual") {
-                                    echo "Selected";
-                                } ?> value="Virtual">Virtual</option>
-                    </select>
-                </div>
-                <div class="form-group mb-3">Ubicacion
-                    <input type="text" id="ubicacionInput" name="ubicacion" class="form-control" value="<?=$result['ubicacion']?>">
-                </div>
-                <input class="btn btn-success btn-block" type="submit" id="editConsulta" name="edit_consulta" value="Guardar Cambios">
-                <input name="idConsulta" hidden value="<?= $_GET['id'] ?>">
-
             </div>
         </div>
+
     </form>
 </div>
 
-
 <script>
-    function placeholder(){
+    function placeholder() {
         var modalidad = document.getElementById("modalidadSelect").value;
         document.getElementById("ubicacionInput").value = "";
-        document.getElementById("ubicacionInput").placeholder = 
+        document.getElementById("ubicacionInput").placeholder =
             modalidad == "Presencial" ? "Aula" : "URL de Reunion";
     }
     /*

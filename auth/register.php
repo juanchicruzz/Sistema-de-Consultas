@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validar que no haya errores
-    if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
+    if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($email_err)) {
         $password = password_hash($password, PASSWORD_DEFAULT);
         $legajo = $_POST["legajo"];
         $idRolUsuario = strtolower($_POST["tipoUsuario"]) == "alumno" ? 1 : 2;
@@ -92,16 +92,6 @@ function isEmailValid($email)
     <meta charset="UTF-8">
     <title>Registrarse</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font: 14px sans-serif;
-        }
-
-        .wrapper {
-            width: 360px;
-            padding: 20px;
-        }
-    </style>
 </head>
 
 <body>
@@ -113,27 +103,26 @@ function isEmailValid($email)
                 <p>Por favor complete este formulario para crear su cuenta.</p>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" name="email" class="form-control 
-                <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                        <label for="email">Email</label>
+                        <input id="email" type="text" name="email" class="form-control 
+                            <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                         <span class="invalid-feedback"><?php echo $email_err; ?></span>
                     </div>
                     <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" name="password" class="form-control 
-                <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                        <label for="password">Contraseña</label>
+                        <input id="password" type="password" name="password" class="form-control 
+                        <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                         <span class="invalid-feedback"><?php echo $password_err; ?></span>
                     </div>
                     <div class="form-group">
-                        <label>Confirmar Contraseña</label>
-                        <input type="password" name="confirm_password" class="form-control 
-                <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                        <label for="confirmpass">Confirmar Contraseña</label>
+                        <input id="confirmpass" type="password" name="confirm_password" class="form-control 
+                        <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                         <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                     </div>
-
                     <div class="form-group">
-                        <label>Legajo</label>
-                        <input type="text" name="legajo" class="form-control">
+                        <label for="legajo">Legajo</label>
+                        <input id="legajo" type="text" name="legajo" class="form-control">
                     </div>
                     <div class="form-group">
                         <select name="tipoUsuario" class="form-control">
@@ -144,16 +133,15 @@ function isEmailValid($email)
                     </div>
                     <br>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Registrarme">
-                        <input type="reset" class="btn btn-secondary ml-2" value="Borrar">
+                        <button type="submit" class="btn btn-primary">Registrarme</button>
+                        <!--<input type="submit" class="btn btn-primary" value="Registrarme">-->
+                        <!--<input type="reset" class="btn btn-secondary ml-2" value="Borrar">-->
+                        <button type="reset" class="btn btn-secondary ml-2">Borrar</button>
                     </div>
                     <p>¿Ya tenes una cuenta? <a href="login.php">Logueate acá.</a></p>
+                </form>
             </div>
-
-
-            </form>
         </div>
-    </div>
     </div>
 </body>
 

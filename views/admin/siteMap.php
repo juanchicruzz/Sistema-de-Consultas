@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 
 require_once(DIR_HEADER); ?>
 
-<link rel="stylesheet" href="<?= REDIR_VIEWS ?>/css/siteMap.css">
+<link rel="stylesheet" href="<?= REDIR_CSS ?>/siteMap.css">
 
 <body>
     <div class="container">

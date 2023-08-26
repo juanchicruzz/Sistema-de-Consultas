@@ -18,6 +18,7 @@ $email_err = $password_err = $login_err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    // validar email
     if (empty(trim($_POST["email"]))) {
         $email_err = "Por favor ingrese su mail.";
     } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
@@ -26,13 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = trim($_POST["email"]);
     }
 
+    //validar contraseña
     if (empty(trim($_POST["password"]))) {
         $password_err = "Por favor ingrese su contraseña.";
     } else {
         $password = trim($_POST["password"]);
     }
 
-    // Validate credentials
+    // Validar credenciales
     if (empty($email_err) && empty($password_err)) {
         $UserRepository = new UserRepository();
         $result = $UserRepository->getUserByEmail($email);
@@ -42,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $hashed_password)) {
                 // Verificar que si es profesor debe estar validado
                 if ($row["idRolUsuario"] == "2" && $row["validado"] == 0) {
-                    $login_err = "Usuario Profesor no esta validado.";
+                    $login_err = "Su cuenta de profesor se encuentra pendiente de validación.";
                 } 
                 // Sino se setea todo en sesion para cualquier tipo de usuario
                  else {
@@ -71,11 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/login.css" type="text/css">
+    <link rel="stylesheet" href="<?= REDIR_CSS ?>/login.css" type="text/css">
 </head>
 
 <body>
-    <hr>
     <div class="container login-form">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="login-form">
             <h2>Login</h2>
@@ -87,17 +88,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
             
             <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email" placeholder="Ingrese su mail" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <label for="email">Email</label>
+                <input required id="email" type="text" name="email" placeholder="Ingrese su mail" autocomplete="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                 <span class="invalid-feedback"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <label for="password">Contraseña</label>
+                <input required id="password" type="password" name="password" class="form-control" placeholder="Ingrese su contraseña"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" value="Ingresar">
+                <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
             </div>
             <p>¿No tenes una cuenta aún? <br> <a href="register.php">Registrate ahora.</a></p>
         </form>

@@ -28,25 +28,33 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
     <br>
 
     <form action="<?= REDIR_CONTROLLERS . "/profesor/bloqSemana.php" ?>" method="POST">
-        <div class="row justify-content-center">
-            <div class="col-md-6 border p-3  bg-light ">
-                <div class="form-group mb-3">Fecha Inicio
-                    <input id="StartDate" name="StartDate" class="form-control" type="date" onchange="validaFecha('EndDate','StartDate')" />
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="border p-3 bg-light">
+                        <div class="mb-3">
+                            <label for="StartDate" class="form-label">Fecha Inicio</label>
+                            <input id="StartDate" name="StartDate" class="form-control" type="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="EndDate" class="form-label">Fecha Fin</label>
+                            <input id="EndDate" name="EndDate" class="form-control" type="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="motivo" class="form-label">Motivo de Bloqueo</label>
+                            <input id="motivo" name="motivo" class="form-control" type="text" placeholder="Motivo de bloqueo" required autofocus>
+                        </div>
+                        <button class="btn btn-danger btn-block" type="submit">Bloquear Consultas</button>
+                        <input name="idProfesor" type="hidden" value="<?= $_SESSION['id'] ?>">
+                    </div>
                 </div>
-                <div class="form-group mb-3">Fecha Fin
-                    <input id="EndDate" name="EndDate" class="form-control" type="date" onchange="validaFecha('EndDate','StartDate')" />
-                </div>
-                <div class="form-group mb-3">Motivo de Bloqueo
-                    <input required type="text" name="motivo" class="form-control" placeholder="Motivo de bloqueo" autofocus>
-                </div>
-                <input class="btn btn-danger btn-block" title="Bloquear Consultas" type="submit" id="bloqSemanaConsulta" name="bloqSemana_consulta" value="Bloquear Consultas">
-                <input name="idProfesor" hidden value="<?= $_SESSION['id'] ?>">
-
             </div>
         </div>
     </form>
+
     <br>
     <hr>
+
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h1 style="text-align: center;">Consultas Activas</h1>

@@ -8,11 +8,11 @@ $consultaRepository = new ConsultaRepository();
 $result = $consultaRepository->getConsultaById($_GET['id'])->fetch_array();
 
 // Si un profesor quiere editar una consulta que no es suya, no se le permite entrar
-if(!($_SESSION['id'] == $result['idProfesor'])){
+if (!($_SESSION['id'] == $result['idProfesor'])) {
     header("Location: " . REDIR_VIEWS . "/profesor/ConsultasProfesor.php");
     exit;
-}else{
-    if($result['estado'] == "Bloqueada"){
+} else {
+    if ($result['estado'] == "Bloqueada") {
         header("Location: " . REDIR_VIEWS . "/profesor/ConsultasProfesor.php");
         exit;
     }
@@ -27,16 +27,17 @@ include(DIR_HEADER);
             <h1>Modificar Consulta</h1>
         </div>
     </div>
+    <br>
     <form action="<?= REDIR_CONTROLLERS . "/profesor/bloqConsulta.php" ?>" method="POST">
         <div class="row justify-content-center">
             <div class="col-md-6 border p-3  bg-light ">
-                <div class="form-group mb-3">Motivo de Bloqueo
-                    <input required type="text" name="motivo" class="form-control" placeholder="Motivo de bloqueo" autofocus>
+                <div class="form-group mb-3">
+                    <label for="motivo"> Ingrese el motivo del bloqueo</label>
+                    <br><br>
+                    <input required id="motivo" type="text" name="motivo" class="form-control" placeholder="Motivo de bloqueo" autofocus>
                 </div>
-
-                <input class="btn btn-danger btn-block" type="submit" id="bloqConsulta" name="bloq_consulta" value="Bloquear Consulta">
+                <button class="btn btn-danger btn-block" name="bloq_consulta" type="submit" id="bloqConsulta">Bloquear Consulta</button>
                 <input name="idConsulta" hidden value="<?= $_GET['id'] ?>">
-
             </div>
         </div>
     </form>

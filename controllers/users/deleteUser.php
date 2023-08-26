@@ -2,9 +2,9 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 require_once(DIR_REPOSITORIES . "/usersRepository.php");
 
-    if(isset($_GET['id'])){
+    if(isset($_POST['idUsuario'])){
         $UserRepository = new UserRepository();
-        $idUsuario = $_GET['id'];
+        $idUsuario = $_POST['idUsuario'];
         $result = $UserRepository->deleteUser($idUsuario); 
         if(!$result){
             die("Delete query failed");

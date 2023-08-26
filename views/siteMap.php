@@ -9,11 +9,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
         break;
       }
       case "2": {
-        include_once(DIR_NAV_BAR_PROFESSOR);
+        include_once(DIR_SITE_MAP_PROFESSOR);
         break;
       }
       case "3": {
-        include_once(DIR_NAV_BAR_ADMIN);
+        include_once(DIR_SITE_MAP_ADMIN);
         break;
       }
   
