@@ -29,15 +29,16 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
         <form style="padding-bottom: 30px;" action="<?= REDIR_CONTROLLERS . "/profesor/desbloqSemana.php" ?>" method="POST">
             <div class="row justify-content-center">
                 <div class="col-md-6 border p-3  bg-light ">
-                    <div class="form-group mb-3">Fecha Inicio
+                    <div class="form-group mb-3">
+                        <label for="StartDate"> Fecha Desde </label>
                         <input id="StartDate" name="StartDate" class="form-control" type="date" onchange="validaFecha('EndDate','StartDate')" />
                     </div>
-                    <div class="form-group mb-3">Fecha Fin
+                    <div class="form-group mb-3">
+                        <label for="EndDate"> Fecha Hasta</label>
                         <input id="EndDate" name="EndDate" class="form-control" type="date" onchange="validaFecha('EndDate','StartDate')" />
                     </div>
-                    <input class="btn btn-success btn-block" type="submit" id="desbloqSemanaConsulta" name="desbloqSemana_consulta" value="Desbloquear Consultas">
+                    <button class="btn btn-success btn-block" name="desbloqSemana_consulta" type="submit" id="desbloqSemanaConsulta">Desbloquear Consultas</button>
                     <input name="idProfesor" hidden value="<?= $_SESSION['id'] ?>">
-
                 </div>
             </div>
         </form>

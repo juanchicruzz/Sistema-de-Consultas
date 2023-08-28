@@ -69,9 +69,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
         </div>
     </div>
 </div>
-</div>
 
-<br><br><br><br><br><br><br><br><br>
 
 
 <?php include("../partials/footer.php"); ?>

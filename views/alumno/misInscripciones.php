@@ -44,23 +44,11 @@ function menorA24Horas($fechaSQL, $horaSQL)
 ?>
 
 
-<script type="text/javascript" charset="utf8" src="../tablas/crearTablaMisInscripciones.js"></script>
-<script>
-    crearTabla()
-</script>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
 <body>
+
+    <script type="text/javascript" charset="utf8" src="../tablas/crearTablaMisInscripciones.js"></script>
+    <script>crearTabla()</script>
 
     <div class="container">
         <div class="row">
@@ -97,7 +85,6 @@ function menorA24Horas($fechaSQL, $horaSQL)
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php
                         if ($inscripciones->num_rows == 0) {
                             echo "<tr><td colspan='5'>Aún no te inscribiste a ninguna consulta</td></tr>";
@@ -144,7 +131,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                                         <input hidden id="idConsultaModal" name="idConsulta">
                                         <p id="materiaModal" style="font-weight:bold;"></p>
                                         <p id="fechaModal" style="font-weight:bold;"></p>
-                                        <label for="titulo" class="col-form-label">¿Estas seguro que deseas darte de baja?</label>
+                                        <p class="col-form-label">¿Estas seguro que deseas darte de baja?</p>
                                     </div>
                             </div>
                             <div class="modal-footer">
@@ -160,7 +147,6 @@ function menorA24Horas($fechaSQL, $horaSQL)
 
             </div>
         </div>
-    </div>
     </div>
 
 

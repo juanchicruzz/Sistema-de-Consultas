@@ -13,11 +13,11 @@ $result = $consultaRepository->getConsultaById($_GET['id'])->fetch_array();
 $numInscripciones = $inscripcionRepository->getInscripcionesByConsulta($_GET['id'])->num_rows;
 
 // Si un profesor quiere editar una consulta que no es suya, no se le permite entrar
-if(!($_SESSION['id'] == $result['idProfesor'])){
+if (!($_SESSION['id'] == $result['idProfesor'])) {
     header("Location: " . REDIR_VIEWS . "/profesor/ConsultasProfesor.php");
     exit;
-}else{
-    if($result['estado'] == "Bloqueada"){
+} else {
+    if ($result['estado'] == "Bloqueada") {
         header("Location: " . REDIR_VIEWS . "/profesor/ConsultasProfesor.php");
         exit;
     }
@@ -32,12 +32,16 @@ include(DIR_HEADER);
             <h1>Bloquear Consulta</h1>
         </div>
     </div>
+    <br>
     <form action="<?= REDIR_CONTROLLERS . "/profesor/bloqConsulta.php" ?>" method="POST">
         <div class="row justify-content-center">
             <div class="col-md-6 border p-3  bg-light ">
-                <div class="form-group mb-3">Motivo de Bloqueo
-                    <input required type="text" name="motivo" class="form-control" placeholder="Motivo de bloqueo" autofocus>
+                <div class="form-group mb-3">
+                    <label for="motivo"> Ingrese el motivo del bloqueo</label>
+                    <br><br>
+                    <input required id="motivo" type="text" name="motivo" class="form-control" placeholder="Motivo de bloqueo" autofocus>
                 </div>
+
                 <?php
                 if($numInscripciones > 0){ ?>
                 <p>Actualmente esta consulta tiene <?=$numInscripciones?> inscripciones activas.</p>
@@ -51,6 +55,7 @@ include(DIR_HEADER);
                 <input name="materia" hidden value="<?= $_GET['materia'] ?>">
                 <input name="fecha" hidden value="<?= $_GET['fecha'] ?>">
                 <input name="profesor" hidden value="<?= $_GET['profesor'] ?>">
+
 
             </div>
         </div>

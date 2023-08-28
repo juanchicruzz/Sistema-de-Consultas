@@ -3,7 +3,7 @@
 require_once(dirname( __DIR__ ) . "/utils.php");
 require_once(dirname( __DIR__ ) . "/mySQLConnector.php");
 
- class Repository {
+    class Repository {
 
 
     protected static function DBInstance(){
@@ -12,7 +12,7 @@ require_once(dirname( __DIR__ ) . "/mySQLConnector.php");
 
     // SELECT STATEMENTS
     protected function getResults($selectQuery){
-        $conn = $this->DBInstance()->getConnection();
+        $conn = $this->DBInstance()->getConnection(); // Crea la Instancia (mysqlconnector), abre la conexion
         $result = mysqli_query($conn, $selectQuery);
         $this->DBInstance()->releaseConnection($conn);
         return $result;
@@ -54,5 +54,3 @@ require_once(dirname( __DIR__ ) . "/mySQLConnector.php");
 
     
 }
-
-?>
