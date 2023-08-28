@@ -10,11 +10,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
             <a href="<?= REDIR_INDEX ?>" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <img src="<?= REDIR_PARTIALS ?>/utnLogo.png" alt="Home Button" style="width: 50px; height: auto ">
             </a>
-
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="<?= REDIR_VIEWS ?>/siteMap.php" class="nav-link px-2 text-light">Mapa del Sitio</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Preguntas Frecuentes</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Contacto</a></li>
+                <li class="nav-item"><a href="<?= REDIR_VIEWS ?>/contacto.php" class="nav-link px-2 text-light">Contacto</a></li>
             </ul>
         </footer>
     </div>
