@@ -25,6 +25,13 @@ class RoleRepository extends Repository{
             ." WHERE descripcionRol = '".$description."' ;" ;
         return $this->getResults($query);
     }
+
+    function getEntity(){
+        return self::ENTITY;
+    }
+    function getIdentifier(){
+        return self::IDENTIFIER;
+    }
 }
 
 ?>

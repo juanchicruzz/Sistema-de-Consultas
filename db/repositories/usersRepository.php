@@ -84,6 +84,12 @@ class UserRepository extends Repository {
             $query, 
             [$email, $password, $legajo, $idRolUsuario]);
     }
+
+    function getUserByIdJoinTables($id, $joinTable, $joinIdentifier1, $joinIdentifier2)
+    {
+        return parent::getOneByIdJoinTables(self::ENTITY, self::IDENTIFIER, 
+        $id, $joinTable, $joinIdentifier1, $joinIdentifier2);
+    }
 }
 
 ?>

@@ -21,7 +21,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li class="dropdown-item"><strong><?= $_SESSION['email'] ?></strong></li>
-          <li><a class="dropdown-item" href="#">Perfil</a></li>
+          <li><a class="dropdown-item" href="<?= REDIR_VIEWS ?>/viewProfile.php">Perfil</a></li>
           <li><a class="dropdown-item" href="#">Configuración</a></li>
           <li>
             <hr class="dropdown-divider">

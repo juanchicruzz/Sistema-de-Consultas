@@ -1,12 +1,21 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 require_once(DIR_REPOSITORIES . "/usersRepository.php");
+require_once(DIR_REPOSITORIES . "/rolesRepository.php");
 require_once(DIR_SECURITY);
-Security::verifyUserIsAdmin();
 include(DIR_HEADER);
 
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+  header("Location: " . REDIR_AUTH . "/login.php");
+  exit;
+}
+
 $UserRepository = new UserRepository();
-$result = $UserRepository->getUserById($_SESSION['id'])->fetch_array();
+$RolRepository = new RoleRepository();
+$result = $UserRepository->getUserByIdJoinTables($_SESSION['id'], 
+    $RolRepository->getEntity(), 'idRolUsuario', $RolRepository->getIdentifier())
+    ->fetch_array();
 
 ?>
 
@@ -43,6 +52,15 @@ $result = $UserRepository->getUserById($_SESSION['id'])->fetch_array();
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0"><?=$result['legajo']?></p>
+              </div>
+            </div>
+            <hr>
+              <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Rol Actual</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="mb-0"><b><?=strtoUpper($result['descripcionRol'])?></b></p>
               </div>
             </div>
 

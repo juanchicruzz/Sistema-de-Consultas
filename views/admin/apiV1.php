@@ -7,6 +7,7 @@ Security::verifyUserIsAdmin();
 require_once(DIR_REPOSITORIES . "/rolesRepository.php");
 require_once(DIR_REPOSITORIES . "/usersRepository.php");
 require_once(DIR_REPOSITORIES . "/materiasRepository.php");
+require_once(DIR_REPOSITORIES . "/inscripcionRepository.php");
 
 
 ?>
@@ -14,9 +15,11 @@ require_once(DIR_REPOSITORIES . "/materiasRepository.php");
 $UserRepo = new UserRepository();
 $RoleRepo = new RoleRepository();
 $MateriaRepo = new MateriaRepository();
+$InscripcionRepo = new InscripcionRepository();
 $users = $UserRepo->getAllUsers();
 $roles = $RoleRepo->getAllRoles();
 $materias = $MateriaRepo->getAllMaterias();
+$inscripciones = $InscripcionRepo->getAllInscripciones();
 
 require_once(DIR_HEADER);
 ?>
@@ -77,6 +80,24 @@ require_once(DIR_HEADER);
                         while ($materiaRow = $materias->fetch_assoc()) {
                         ?>
                             <li><?= json_encode($materiaRow); ?></li>
+                        <?php
+                        };
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#inscripciones" aria-expanded="false" aria-controls="inscripciones">
+                        Inscripciones
+                    </button>
+                </h2>
+                <div id="inscripciones" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                    <?php
+                        while ($inscRow = $inscripciones->fetch_assoc()) {
+                        ?>
+                            <li><?= json_encode($inscRow); ?></li>
                         <?php
                         };
                         ?>
