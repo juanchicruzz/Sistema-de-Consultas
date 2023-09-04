@@ -24,7 +24,7 @@ private function __construct()
     self::$DB_HOST = DB_HOST;
     self::$DB_NAME = DB_NAME;
     self::$DB_USERNAME = DB_USERNAME;
-    self::$DB_PASSWORD = DB_PASSWORD;
+    self::$DB_PASSWORD = getenv("DB_PASSWORD");
     self::$DB_CHARSET = DB_CHARSET;
     $this->CURR_CONNECTIONS = 0;
 }
