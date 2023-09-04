@@ -51,7 +51,7 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['legajo'] ?></td>
                     <td align="center">
-                    <td>
+                    
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ValidarDocente" data-bs-idDocente="<?=$row['idUsuario']?>" data-bs-mailDocente="<?=$row['email']?>">
                             <i class="fa fa-check"></i>
                         </button>
