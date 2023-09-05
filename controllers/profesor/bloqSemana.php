@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 require_once(DIR_REPOSITORIES . "/consultasRepository.php");
-
+ini_set('display_errors', 1);
     if(isset($_POST['bloqSemana_consulta'])){
         $ConsultaRepository = new ConsultaRepository();
         $fechaInicio = $_POST['StartDate'];
