@@ -53,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION["id"] = $row["idUsuario"];
                     $_SESSION["email"] = $row["email"];
                     $_SESSION["userType"] = $row["idRolUsuario"];
+                    $_SESSION["nombre"] = $row["nombre"];
+                    $_SESSION["apellido"] = $row["apellido"];
                     header("Location: " . REDIR_INDEX);
                     exit;
                 }

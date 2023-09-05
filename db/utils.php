@@ -40,6 +40,14 @@ class Utils{
             case 4: 
                 return $stmt->bind_param(
                     $bindString, $params[0], $params[1], $params[2], $params[3]);
+                break;
+            case 5: 
+                return $stmt->bind_param(
+                    $bindString, $params[0], $params[1], $params[2], $params[3], $params[4]);
+                break;
+            case 6: 
+                return $stmt->bind_param(
+                    $bindString, $params[0], $params[1], $params[2], $params[3], $params[4], $params[5]);
                 break;   
         }
     }

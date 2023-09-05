@@ -12,7 +12,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <div class="container">
     <div class="row">
-        <h1 class="my-5">Bienvenido al sitio! <b><?php echo htmlspecialchars($_SESSION["email"]); ?></b></h1>
+        <h1 class="my-5">Bienvenido al sitio! <b><?php echo htmlspecialchars($_SESSION["nombre"]." ". $_SESSION["apellido"] ); ?></b></h1>
     </div>
     <div class="row">
         <div class="container">

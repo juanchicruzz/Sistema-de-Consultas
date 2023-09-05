@@ -54,7 +54,6 @@ function yaEstaInscripto($inscripcionesArray, $idConsulta)
             </div>
         </div>
         <br><br>
-
         <div class="row">
             <div class="col-md-12">
                 <table id="tablaInscripcion" class="display table table-striped table-hover" id="table_id">
@@ -133,7 +132,7 @@ function yaEstaInscripto($inscripcionesArray, $idConsulta)
             </div>
         </div>
     </div>
-
+    <br>
 
     <SCRIPT>
         var inscribirModal = document.getElementById('inscribirModal');

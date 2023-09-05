@@ -75,14 +75,14 @@ class UserRepository extends Repository {
             [$idUsuario]);
     }
 
-    function registerUser($email, $password, $legajo, $idRolUsuario){
+    function registerUser($email, $password, $legajo, $idRolUsuario, $nombre, $apellido){
         $query = '
             INSERT INTO '.self::ENTITY
-            .'(email, password, legajo, idRolUsuario) ' 
-            .'VALUES(?, ?, ?, ?);';
+            .'(email, password, legajo, idRolUsuario, nombre, apellido) ' 
+            .'VALUES(?, ?, ?, ?, ?, ?);';
         return $this->executeQuery(
             $query, 
-            [$email, $password, $legajo, $idRolUsuario]);
+            [$email, $password, $legajo, $idRolUsuario, $nombre, $apellido]);
     }
 
     function getUserByIdJoinTables($id, $joinTable, $joinIdentifier1, $joinIdentifier2)

@@ -225,8 +225,6 @@ class ConsultaRepository extends Repository{
         return $this->getResults($query);
     }
 
-    
-
 
     function getIdConsultaFromPKandFecha($idProfesor, $idMateria, $idCarrera, $fecha){
         $query = "SELECT idConsulta FROM consultas c 

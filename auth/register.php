@@ -58,6 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    //Nombre y Apellido
+    $nombre = trim($_POST["nombre"]);
+    $apellido = trim($_POST["apellido"]);
+
     // Validar que no haya errores
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($email_err)) {
         $password = password_hash($password, PASSWORD_DEFAULT);
@@ -67,7 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email,
             $password,
             $legajo,
-            $idRolUsuario
+            $idRolUsuario,
+            $nombre,
+            $apellido
         )) {
             header("Location: " . REDIR_AUTH . "/login.php");
             exit;
@@ -95,16 +101,23 @@ function isEmailValid($email)
 </head>
 
 <body>
-    <hr>
-    <div class="container">
+    <div class="container" style="padding: 1%;">
         <div class="row justify-content-center">
             <div class="col-md-6 bg-light shadow">
-                <h2>Registrarse</h2>
-                <p>Por favor complete este formulario para crear su cuenta.</p>
+                <h2 style="text-align: center;">Registrarse</h2>
+                <p  style="text-align: center;">Por favor complete este formulario para crear su cuenta.</p>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                     <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input id="nombre" type="text" name="nombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input id="apellido" type="text" name="apellido" class="form-control">
+                    </div>
+                    <div class="form-group">
                         <label for="email">Email</label>
-                        <input id="email" type="text" name="email" class="form-control 
+                        <input autocomplete="email" id="email" type="text" name="email" class="form-control 
                             <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                         <span class="invalid-feedback"><?php echo $email_err; ?></span>
                     </div>
@@ -131,11 +144,8 @@ function isEmailValid($email)
                         </select>
                         <small class="form-text text-muted">Modificar sólo en el caso de solicitar una cuenta Docente</small>
                     </div>
-                    <br>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Registrarme</button>
-                        <!--<input type="submit" class="btn btn-primary" value="Registrarme">-->
-                        <!--<input type="reset" class="btn btn-secondary ml-2" value="Borrar">-->
                         <button type="reset" class="btn btn-secondary ml-2">Borrar</button>
                     </div>
                     <p>¿Ya tenes una cuenta? <a href="login.php">Logueate acá.</a></p>
