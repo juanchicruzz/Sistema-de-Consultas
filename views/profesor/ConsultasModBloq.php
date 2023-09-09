@@ -68,8 +68,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
                         <th scope="col">Ubicacion</th>
                         <th scope="col">Horario</th>
                         <th scope="col">Inscriptos</th>
-                        <th scope="col">Modificar</th>
-                        <th scope="col">Bloquear/Desbloquear</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,16 +85,21 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
                                 <td><?= $row['ubicacion'] ?></td>
                                 <td><?= $row['horario'] ?></td>
                                 <td><?= $row['inscriptos'] ?></td>
-                                <td><a href="consultaEdit.php?id=<?= $row['idConsulta'] ?>">
+                                <td>
+                                    <a title="Ver Inscriptos" style="text-decoration: none;" href= <?= "alumnosInscriptos.php?c=".$row["idConsulta"]?> >
+                                        <i class="fas fa-user-group"></i>
+                                    </a> <span>|</span>
+                                    <a title="Editar Consulta" style="text-decoration: none;" href="consultaEdit.php?id=<?= $row['idConsulta'] ?>">
                                         <i class="fas fa-edit"></i>
-                                    </a></td>
-                                <?php if($row['estado'] == "Bloqueada"){
-                                    echo '<td><a href="'.REDIR_CONTROLLERS.'/profesor/desbloqConsulta.php?id='. $row["idConsulta"] .' "><i class="fa-solid fa-unlock" style="color:green;"></i></a></td>';
+                                    </a><span>|</span>
+                                    <?php if($row['estado'] == "Bloqueada"){
+                                    echo '<a title="Desbloquear Consulta" style="text-decoration: none;"  href="'.REDIR_CONTROLLERS.'/profesor/desbloqConsulta.php?id='. $row["idConsulta"] .' "><i class="fa-solid fa-unlock" style="color:green;"></i></a>';
                                 }else{
-                                    echo '<td><a href="consultaBloquear.php?id='. $row["idConsulta"] . 
+                                    echo '<a title="Bloquear Consulta" style="text-decoration: none;"  href="consultaBloquear.php?id='. $row["idConsulta"] . 
                                     '&materia=' . $detalles['materia']. '&profesor=' . $detalles['profesor'] . '&fecha=' . $row['fecha']
-                                    .'"><i class="fa-solid fa-lock" style="color:red;"></i></a></td>';
+                                    .'"><i class="fa-solid fa-lock" style="color:red;"></i></a>';
                                 } ?>
+                                </td>
                             </tr>
                     <?php }
                     } ?>

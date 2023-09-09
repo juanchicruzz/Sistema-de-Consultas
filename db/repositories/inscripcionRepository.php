@@ -22,13 +22,13 @@ class InscripcionRepository extends Repository
 
     function getInscripcionesByConsulta($idConsulta)
     {
-        $query = "SELECT i.motivoConsulta , ifnull(u.nombre + ' ' + u.apellido, u.email) alumno , u.legajo, u.email 
+        $query = "SELECT i.motivoConsulta , ifnull(u.nombre,'-') nombre,ifnull(u.apellido,'-') apellido,ifnull(u.email,'-') Mail , u.legajo, u.email 
          FROM inscripciones i 
          INNER JOIN usuarios u 
          ON i.idAlumno = u.idUsuario 
          INNER JOIN consultas c 
          ON i.idConsulta = c.idConsulta 
-        WHERE i.idConsulta = '" . $idConsulta . "';";
+        WHERE i.idConsulta = '$idConsulta' ;";
         return $this->getResults($query);
     }
 

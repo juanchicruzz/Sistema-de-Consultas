@@ -45,6 +45,7 @@ $detalles = $consultaRepository->getInfoConsultaById($idConsulta)->fetch_array()
                 <thead>
                     <tr>
                         <th scope="col">Alumno</th>
+                        <th scope="col">Mail</th>
                         <th scope="col">Legajo</th>
                         <th scope="col">Motivo</th>
                     </tr>
@@ -53,11 +54,12 @@ $detalles = $consultaRepository->getInfoConsultaById($idConsulta)->fetch_array()
 
                     <?php
                     if ($alumnosInscripciones->num_rows == 0) {
-                        echo "<tr><td width:100%>No hay consultas disponibles</td></tr>";
+                        echo "<tr><td width:100%>No hay alumnos inscriptos a la consulta</td></tr>";
                     } else {
                         while ($row = $alumnosInscripciones->fetch_array()) { ?>
                             <tr>
-                                <td><?= $row['alumno'] ?></td>
+                                <td><?= $row['nombre'] ." ". $row['apellido']   ?></td>
+                                <td><?= $row['Mail'] ?></td>
                                 <td><?= $row['legajo'] ?></td>
                                 <td><?= $row['motivoConsulta'] ?></td>
                             </tr>
