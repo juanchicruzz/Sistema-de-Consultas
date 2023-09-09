@@ -19,7 +19,8 @@ function crearTabla(){
         },
         columnDefs: [
             { orderable: false, targets: [3,4,5] },
-            { searchable: false, targets: [0,3,4,5] }
+            { searchable: false, targets: [0,3,4,5] },
+            { 'targets': 0, type: 'date-euro' }
           ],
           order: [[0, 'asc']]
     })

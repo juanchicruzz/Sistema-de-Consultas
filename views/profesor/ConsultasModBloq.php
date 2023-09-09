@@ -17,7 +17,7 @@ if(!($_SESSION['id'] == $profesor)){
     exit;
 }
 
-$consultas = $consultaRepository->getConsultasByPrimaryKey($profesor, $materia, $carrera);
+$consultas = $consultaRepository->getConsultasByPrimaryKeyConInscripciones($profesor, $materia, $carrera);
 
 // Si un profesor quiere acceder a una terna que no existe se redirige
 if($consultas -> num_rows == 0){
@@ -67,6 +67,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
                         <th scope="col">Modalidad</th>
                         <th scope="col">Ubicacion</th>
                         <th scope="col">Horario</th>
+                        <th scope="col">Inscriptos</th>
                         <th scope="col">Modificar</th>
                         <th scope="col">Bloquear/Desbloquear</th>
                     </tr>
@@ -84,6 +85,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
                                 <td><?= $row['modalidad'] ?></td>
                                 <td><?= $row['ubicacion'] ?></td>
                                 <td><?= $row['horario'] ?></td>
+                                <td><?= $row['inscriptos'] ?></td>
                                 <td><a href="consultaEdit.php?id=<?= $row['idConsulta'] ?>">
                                         <i class="fas fa-edit"></i>
                                     </a></td>
