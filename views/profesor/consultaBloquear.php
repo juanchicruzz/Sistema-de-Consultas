@@ -52,9 +52,9 @@ include(DIR_HEADER);
                 <input class="btn btn-danger btn-block" type="submit" id="bloqConsulta" name="bloq_consulta" value="Bloquear Consulta">
                 <input class="btn btn-secondary btn-block" onclick="history.back()" type="button" name="cancelar" value="Cancelar">
                 <input name="idConsulta" hidden value="<?= $_GET['id'] ?>">
-                <input name="materia" hidden value="<?= $_GET['materia'] ?>">
-                <input name="fecha" hidden value="<?= $_GET['fecha'] ?>">
-                <input name="profesor" hidden value="<?= $_GET['profesor'] ?>">
+                <input name="materia" hidden value="<?= $result['idMateria'] ?>">
+                <input name="fecha" hidden value="<?= $result['fecha'] ?>">
+                <input name="profesor" hidden value="<?= $result['idProfesor'] ?>">
 
 
             </div>
