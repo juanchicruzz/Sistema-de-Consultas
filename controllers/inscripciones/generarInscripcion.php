@@ -18,6 +18,7 @@
         if(!$result_query){
             die("Insert query failed");
         }
+        #$ConsultaRepository -> updateCupoConsulta($idConsulta, 'alta');
         $_SESSION['message'] = "Usuario inscripto exitosamente";
         $_SESSION['message_type'] = "success";
         header("Location: " . REDIR_VIEWS .  "/alumno/misInscripciones.php");

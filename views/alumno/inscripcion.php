@@ -36,6 +36,25 @@ function yaEstaInscripto($inscripcionesArray, $idConsulta)
     return false;
 }
 
+function consultaCaducada($fechaConsulta){
+    $fechaConsulta = new DateTime($fechaConsulta);
+    $fechaActual = new DateTime($today = date("Y-m-d"));
+    if  ($fechaConsulta < $fechaActual){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function validarCupo($cupo){
+    if ($cupo == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 ?>
 
 <body>
@@ -56,15 +75,15 @@ function yaEstaInscripto($inscripcionesArray, $idConsulta)
         <br><br>
         <div class="row">
             <div class="col-md-12">
-                <table id="tablaInscripcion" class="display table table-striped table-hover" id="table_id">
+                <table id="tablaInscripcion" class="display table table-striped table-hover text-center" id="table_id">
                     <thead>
                         <tr>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col">Modalidad</th>
-                            <th scope="col">Ubicacion</th>
-                            <th scope="col">Horario</th>
-                            <th scope="col">Inscribirse</th>
+                            <th class="text-center" scope="col">Fecha</th>
+                            <th class="text-center" scope="col">Estado</th>
+                            <th class="text-center" scope="col">Modalidad</th>
+                            <th class="text-center" scope="col">Ubicacion</th>
+                            <th class="text-center" scope="col">Horario</th>
+                            <th class="text-center" scope="col">Inscribirse</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,7 +94,7 @@ function yaEstaInscripto($inscripcionesArray, $idConsulta)
                         } else {
                             while ($row = $consultas->fetch_array()) { ?>
                                 <tr>
-                                    <td><?= $row['dia'] . " " . Utils::convertirFechaFromSQL($row['fecha']) ?></td>
+                                    <td><?= ($row['fecha']) ?></td>
                                     <td><?= $row['estado'] ?></td>
                                     <td><?= $row['modalidad'] ?></td>
                                     <td><?= $row['ubicacion'] ?></td>
@@ -86,6 +105,14 @@ function yaEstaInscripto($inscripcionesArray, $idConsulta)
                                     }
                                     if (yaEstaInscripto($inscripcionesArray, $row['idConsulta'])) {
                                         echo '<td style="color:green">Ya estas inscripto. <a href="misInscripciones.php">Ver Aqui.</a></td>';
+                                        continue;
+                                    }
+                                    if (consultaCaducada($row['fecha'])){
+                                        echo '<td style="color:grey;><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Consulta Expirada)</a></td>';
+                                        continue;
+                                    }
+                                    if (validarCupo($row['cupo'])) {
+                                        echo '<td style="color:grey;><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Cupo agotado)</a></td>';
                                         continue;
                                     }
                                     ?>

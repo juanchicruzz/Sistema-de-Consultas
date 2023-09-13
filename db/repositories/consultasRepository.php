@@ -159,6 +159,33 @@ class ConsultaRepository extends Repository{
         return $this->getResults($query);
     }
 
+
+    function updateCupoConsulta($idConsulta, $tipo) {
+        
+        // Obtener el cupo actual
+        $result = $this->getConsultaById($idConsulta);
+        
+        if ($row = $result->fetch_array()) {
+            $cupoActual = $row['cupo'];
+            // Determinar nuevo cupo
+            if ($tipo == 'baja'){
+                $cupoNuevo = $cupoActual + 1;
+            }
+            else{
+                $cupoNuevo = $cupoActual - 1 ;
+            }
+            // Actualizar el cupo en la tabla
+            $query = 'UPDATE '.self::ENTITY.' SET '
+            .' cupo=?,'
+            .' WHERE '.self::IDENTIFIER. '=?'; 
+            return $this->executeQuery(
+                $query, 
+                [$cupoNuevo, $idConsulta]);
+        }
+       
+    }
+    
+
     function updateConsulta($modalidad, $horarioAlt,  $ubicacion, $idConsulta){
         $query = 'UPDATE '.self::ENTITY.' SET '
             .' modalidad=?, horarioAlternativo=?, ubicacion=?'
@@ -215,7 +242,7 @@ class ConsultaRepository extends Repository{
     }
 
     function getConsultasByPrimaryKey($idProfesor, $idMateria, $idCarrera){
-        $query = "SELECT c.idConsulta, upper(pm.dia) as dia, c.fecha, c.estado, c.modalidad, 
+        $query = "SELECT c.idConsulta, upper(pm.dia) as dia, cupo, c.fecha, c.estado, c.modalidad,
         ifNull(c.ubicacion, 'No definido') as ubicacion, 
         ifNull(c.horarioAlternativo, pm.horarioFijo) as horario
         FROM consultas c

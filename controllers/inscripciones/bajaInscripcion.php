@@ -11,6 +11,7 @@
         if($result == 1){
             $_SESSION['message'] = "Inscripcion dada de baja exitosamente";
             $_SESSION['message_type'] = "success";
+            #$ConsultaRepository -> updateCupoConsulta($idConsulta, 'baja');
             header("Location: " . REDIR_VIEWS .  "/alumno/misInscripciones.php");
         exit;
         }
