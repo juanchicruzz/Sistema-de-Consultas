@@ -8,7 +8,7 @@ Security::verifyUserIsAdmin();
 include(DIR_HEADER)
 
 ?>
-<script type="text/javascript" charset="utf8" src="../tablas/downloadTabla.js"></script>
+<script src="../tablas/downloadTabla.js"></script>
 <?php
 include(DIR_REPOSITORIES . "/usersRepository.php");
 ?>
@@ -50,18 +50,18 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                     <td><?= $row['idUsuario'] ?></td>
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['legajo'] ?></td>
-                    <td align="center">
-                    
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ValidarDocente" data-bs-idDocente="<?=$row['idUsuario']?>" data-bs-mailDocente="<?=$row['email']?>">
+                    <td>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ValidarDocente" data-bs-idDocente="<?= $row['idUsuario'] ?>" data-bs-mailDocente="<?= $row['email'] ?>">
                             <i class="fa fa-check"></i>
                         </button>
                     </td>
                 <?php
-                        }
-                        ?>
+            }
+                ?>
                 </tr>
-                </tbody>
-            </table>
+        </tbody>
+    </table>
     <div class="modal fade" id="ValidarDocente" tabindex="-1" aria-labelledby="ValidarDocente" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -75,7 +75,7 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                         <input hidden id="mail" name="mail">
                         <div class="mb-3">
                             <p>¿Esta seguro que desea validar a: </p>
-                            <p id="mailDocente" name="mailDocente"><strong>?</p>
+                            <p id="mailDocente">?</p>
                         </div>
                 </div>
                 <div class="modal-footer">

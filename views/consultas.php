@@ -19,7 +19,7 @@ if (!isset($_GET["carrera"]) && !isset($_GET["a"])) {
 
 <?php require_once(DIR_HEADER); ?>
 
-<script type="text/javascript" charset="utf8" src="tablas/crearTablaConsultas.js"></script>
+<script src="tablas/crearTablaConsultas.js"></script>
 <script>
     crearTabla()
 </script>
@@ -50,10 +50,10 @@ if (!isset($_GET["carrera"]) && !isset($_GET["a"])) {
         </div>
         <div class="col-md-2">
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                     Año
                 </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                     <li><a class="dropdown-item" href="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">TODOS</a></li>
                     <li>
                         <hr class="dropdown-divider">
@@ -90,7 +90,7 @@ if (!isset($_GET["carrera"]) && !isset($_GET["a"])) {
                     } else {
                         while ($row = $consultas->fetch_array()) { ?>
                             <tr>
-                                <td scope="row"><?= strtoupper($row['dia']) . " - " . $row['horarioFijo'] ?></td>
+                                <td><?= strtoupper($row['dia']) . " - " . $row['horarioFijo'] ?></td>
                                 <td><?= $row['profesor'] ?></td>
                                 <td><?= $row['descripcionMateria'] ?></td>
                                 <td><?= $row['nombreCarrera'] ?></td>

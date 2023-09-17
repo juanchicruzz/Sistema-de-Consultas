@@ -11,7 +11,7 @@ $consultas = $consultaRepository->getConsultasByProfesor($_SESSION["id"]);
 
 ?>
 
-<script type="text/javascript" charset="utf8" src="../tablas/crearTablaConsultasProfesor.js"></script>
+<script src="../tablas/crearTablaConsultasProfesor.js"></script>
 <script>
     crearTabla()
 </script>
@@ -42,7 +42,7 @@ $consultas = $consultaRepository->getConsultasByProfesor($_SESSION["id"]);
                     } else {
                         while ($row = $consultas->fetch_array()) { ?>
                             <tr>
-                                <td scope="row"><?= strtoupper($row['dia']) . " - " . $row['horarioFijo'] ?></td>
+                                <td><?= strtoupper($row['dia']) . " - " . $row['horarioFijo'] ?></td>
                                 <td><?= $row['descripcionMateria'] ?></td>
                                 <td><?= $row['nombreCarrera'] ?></td>
                                 <td><?= $row['añoCursado'] ?></td>

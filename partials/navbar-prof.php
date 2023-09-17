@@ -18,7 +18,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 
       <div class="dropdown text-end">
         <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa fa-fw fa-user rounded-circle" alt="mdo" width="32" height="32"></i>
+          <i class="fa fa-fw fa-user rounded-circle"></i>
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li class="dropdown-item"><strong><?= $_SESSION['email'] ?></strong></li>

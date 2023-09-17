@@ -8,8 +8,8 @@ Security::verifyUserIsAdmin();
 include(DIR_HEADER)
 ?>
 
-<script type="text/javascript" charset="utf8" src="../tablas/downloadTabla.js"></script>
-<script type="text/javascript" charset="utf8" src="../tablas/crearTablaConsultas.js"></script>
+<script  src="../tablas/downloadTabla.js"></script>
+<script  src="../tablas/crearTablaConsultas.js"></script>
 <script>
     crearTabla()
 </script>
@@ -34,7 +34,7 @@ if (isset($_GET['fecha']) && (!$_GET['fecha'] == '')) {
     <div class="row">
         <form method="GET" action=<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <strong>Ingresar Fecha</strong> <input type="date" id="fechaBusca" name="fecha">
                 </div>
                 <div class="col-md-3">

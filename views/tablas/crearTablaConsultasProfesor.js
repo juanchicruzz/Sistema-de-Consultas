@@ -1,4 +1,3 @@
-
 function crearTabla(){
     $(document).ready(function() {
     $('#tablaConsultasProfesor').DataTable({

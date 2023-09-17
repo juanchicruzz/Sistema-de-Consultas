@@ -28,7 +28,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
 
 ?>
 
-<script type="text/javascript" charset="utf8" src="tablas/crearTablaInscripcion.js"></script>
+<script src="tablas/crearTablaInscripcion.js"></script>
 <script>
     crearTabla()
 </script>
@@ -86,7 +86,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
                                 <td><?= $row['horario'] ?></td>
                                 <td><?= $row['inscriptos'] ?></td>
                                 <td>
-                                    <a title="Ver Inscriptos" style="text-decoration: none;" href= <?= "alumnosInscriptos.php?c=".$row["idConsulta"]?> >
+                                    <a title="Ver Inscriptos" style="text-decoration: none;" href=<?= "alumnosInscriptos.php?c=".$row["idConsulta"]?> >
                                         <i class="fas fa-user-group"></i>
                                     </a> <span>|</span>
                                     <a title="Editar Consulta" style="text-decoration: none;" href="consultaEdit.php?id=<?= $row['idConsulta'] ?>">
@@ -96,7 +96,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
                                     echo '<a title="Desbloquear Consulta" style="text-decoration: none;"  href="'.REDIR_CONTROLLERS.'/profesor/desbloqConsulta.php?id='. $row["idConsulta"] .' "><i class="fa-solid fa-unlock" style="color:green;"></i></a>';
                                 }else{
                                     echo '<a title="Bloquear Consulta" style="text-decoration: none;"  href="consultaBloquear.php?id='. $row["idConsulta"] . 
-                                    '&materia=' . $detalles['materia']. '&profesor=' . $detalles['profesor'] . '&fecha=' . $row['fecha']
+                                    '&materia=' . '&fecha=' . $row['fecha']
                                     .'"><i class="fa-solid fa-lock" style="color:red;"></i></a>';
                                 } ?>
                                 </td>

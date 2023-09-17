@@ -33,7 +33,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
                         <input required type="text" name="asunto" class="form-control" placeholder="Motivo del contacto">
                     </div>
                     <div class="form-group mb-3">
-                        <textarea required type="text" name="consulta" class="form-control" placeholder="Cuerpo del mail de consulta"></textarea>
+                        <textarea required name="consulta" class="form-control" placeholder="Cuerpo del mail de consulta"></textarea>
                     </div>
                     <input class="btn btn-success btn-block" type="submit" value="Enviar">
 

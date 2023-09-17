@@ -17,9 +17,6 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
         <h1>Usuarios</h1>
         <div class="col-md-6 p-4">
             <a href="addUser.php" class="btn btn-success">Agregar Usuario</a>
-            <!--<a href="addUser.php" class="btn btn-warning">Otro Boton</a>
-                <a href="addUser.php" class="btn btn-danger">Aasdsd Usuario</a>
-                !-->
         </div>
     </div>
     <br>
@@ -71,30 +68,6 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliminarUsrModal" data-bs-email="<?= $row['email'] ?>" data-bs-idusuario="<?= $row['idUsuario'] ?>">
                             <i class="fas fa-trash "></i>
                         </button>
-                        <div class="modal fade" id="EliminarUsrModal" tabindex="-1" aria-labelledby="EliminarUsrModal" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <form method="POST" action="<?= REDIR_CONTROLLERS ?>/users/deleteUser.php?">
-                                        <div class="modal-body">
-                                            <div class="mb-3">
-                                                <p><strong> Esta seguro que desea eliminar a :</strong></p>
-                                                <p id="emailModal" style="font-weight:bold;"></p>
-                                                <input hidden id="idUsuarioModal" name="idUsuario">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
                     </td>
                 </tr>
             <?php
@@ -103,6 +76,31 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
             ?>
         </tbody>
     </table>
+
+    <div class="modal fade" id="EliminarUsrModal" tabindex="-1" aria-labelledby="EliminarUsrModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="<?= REDIR_CONTROLLERS ?>/users/deleteUser.php?">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <p><strong> Esta seguro que desea eliminar a :</strong></p>
+                            <p id="emailModal" style="font-weight:bold;"></p>
+                            <input hidden id="idUsuarioModal" name="idUsuario">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 
