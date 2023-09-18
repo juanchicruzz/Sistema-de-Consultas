@@ -14,7 +14,7 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
 
 
 
-<script type="text/javascript" charset="utf8" src="tablas/crearTablaInscripcion.js"></script>
+<script src="../tablas/crearTablaConsultasBloqueadas.js"></script>
 <script>
     crearTabla()
 </script>
@@ -77,7 +77,7 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
     ?>
     <div class="row">
         <div class="col-md-12">
-            <table id="tablaInscripcion" class="display table table-striped table-hover" id="table_id">
+            <table id="tablaConsultasBloqueadas" class="display table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Fecha</th>

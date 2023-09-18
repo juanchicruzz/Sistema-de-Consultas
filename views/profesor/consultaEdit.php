@@ -28,7 +28,7 @@ include(DIR_HEADER);
                 <div class="col-md-6 border p-3  bg-light ">
                     <div class="mb-3">
                         <label for="horarioAlternativo" class="form-label">Horario Alternativo</label>
-                        <input type="time" id="horarioAlternativo" name="horarioAlternativo" class="form-control" placeholder="Hora Alternativa" autofocus value="<?= $result['horarioAlternativo'] ?>">
+                        <input type="time" id="horarioAlternativo" name="horarioAlternativo" class="form-control"  autofocus value="<?= $result['horarioAlternativo'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="modalidadSelect" class="form-label">Modalidad</label>
@@ -57,24 +57,5 @@ include(DIR_HEADER);
         document.getElementById("ubicacionInput").placeholder =
             modalidad == "Presencial" ? "Aula" : "URL de Reunion";
     }
-    /*
-    function disable(select_val, input_id) {
-        var e = document.getElementById(select_val);
-        var strUser = e.options[e.selectedIndex].value;
-        if (strUser === "Virtual") {
-            document.getElementById(input_id).value = document.getElementById(input_id).defaultValue;
-            document.getElementById(input_id).disabled = false;
-            document.getElementById(input_id).required = true;
-            
-        } else {
-            document.getElementById(input_id).value = "";
-            document.getElementById(input_id).disabled = true;
-            document.getElementById(input_id).required = false;
-        }
-    }
-    window.onload = function() {
-        disable('modalidadSelect', 'urlInput');
-    };
-    */
 </script>
 <?php include(DIR_FOOTER); ?>

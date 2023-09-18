@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input required id="password" type="password" name="password" class="form-control" placeholder="Ingrese su contraseña"<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <input required id="password" type="password" name="password" placeholder="Ingrese su contraseña" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
@@ -108,3 +108,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+

@@ -47,7 +47,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
 
 <body>
 
-    <script type="text/javascript" charset="utf8" src="../tablas/crearTablaMisInscripciones.js"></script>
+    <script src="../tablas/crearTablaMisInscripciones.js"> </script>
     <script>crearTabla()</script>
 
     <div class="container">

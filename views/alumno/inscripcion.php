@@ -58,7 +58,7 @@ function validarCupo($cupo){
 ?>
 
 <body>
-    <script type="text/javascript" charset="utf8" src="../tablas/crearTablaInscripcion.js"></script>
+    <script src="../tablas/crearTablaInscripcion.js"></script>
     <script>
         crearTabla()
     </script>
@@ -100,7 +100,7 @@ function validarCupo($cupo){
                                     <td><?= $row['ubicacion'] ?></td>
                                     <td><?= $row['horario'] ?></td>
                                     <?php if ($row['estado'] == "Bloqueada") {
-                                        echo '<td style="color:grey;><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Bloqueada)</a></td>';
+                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Bloqueada)</a></td>';
                                         continue;
                                     }
                                     if (yaEstaInscripto($inscripcionesArray, $row['idConsulta'])) {
@@ -108,11 +108,11 @@ function validarCupo($cupo){
                                         continue;
                                     }
                                     if (consultaCaducada($row['fecha'])){
-                                        echo '<td style="color:grey;><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Consulta Expirada)</a></td>';
+                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Consulta Expirada)</a></td>';
                                         continue;
                                     }
                                     if (validarCupo($row['cupo'])) {
-                                        echo '<td style="color:grey;><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Cupo agotado)</a></td>';
+                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Cupo agotado)</a></td>';
                                         continue;
                                     }
                                     ?>

@@ -15,7 +15,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
 
 ?>
 
-<script type="text/javascript" charset="utf8" src="tablas/crearTablaInscripcion.js"></script>
+<script src="../tablas/crearTablaInscripcion.js"></script>
 <script>
     crearTabla()
 </script>
