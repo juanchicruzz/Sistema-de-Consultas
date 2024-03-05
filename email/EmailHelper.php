@@ -6,7 +6,6 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 require DIR_PHPMAILER .'/vendor/autoload.php';
-require_once('credentials.php');
 
 class EmailHelper{
 
@@ -23,8 +22,8 @@ private static function initHelperInstance(){
         $mailHelper->isSMTP();                                            //Send using SMTP
         $mailHelper->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mailHelper->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mailHelper->Username   = SMTP_USERNAME;                     //SMTP username
-        $mailHelper->Password   = SMTP_PASSWORD;                               //SMTP password
+        $mailHelper->Username   = getenv("SMTP_USERNAME");                     //SMTP username
+        $mailHelper->Password   = getenv("SMTP_PASSWORD");                               //SMTP password
         $mailHelper->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
         $mailHelper->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         $mailHelper->setFrom("sistemaconsultasentornos@gmail.com", 'Grupo 5 - EG - 2022');

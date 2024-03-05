@@ -30,30 +30,17 @@ function yaEstaInscripto($inscripcionesArray, $idConsulta)
     if (count($inscripcionesArray) == 0) {
         return false;
     }
-    if (in_array($idConsulta, $inscripcionesArray)) {
-        return true;
-    }
-    return false;
+    return in_array($idConsulta, $inscripcionesArray);
 }
 
-function consultaCaducada($fechaConsulta){
+function consultaFechaCaducada($fechaConsulta){
     $fechaConsulta = new DateTime($fechaConsulta);
     $fechaActual = new DateTime($today = date("Y-m-d"));
-    if  ($fechaConsulta < $fechaActual){
-        return true;
-    }
-    else{
-        return false;
-    }
+    return ($fechaConsulta < $fechaActual);
 }
 
-function validarCupo($cupo){
-    if ($cupo == 0){
-        return true;
-    }
-    else{
-        return false;
-    }
+function cupoDisponible($cupo){
+    return $cupo == 0;
 }
 ?>
 
@@ -99,7 +86,12 @@ function validarCupo($cupo){
                                     <td><?= $row['modalidad'] ?></td>
                                     <td><?= $row['ubicacion'] ?></td>
                                     <td><?= $row['horario'] ?></td>
-                                    <?php if ($row['estado'] == "Bloqueada") {
+                                    <?php 
+                                    if (consultaFechaCaducada($row['fecha'])){
+                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Consulta Expirada)</a></td>';
+                                        continue;
+                                    }
+                                    if ($row['estado'] == "Bloqueada") {
                                         echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Bloqueada)</a></td>';
                                         continue;
                                     }
@@ -107,11 +99,7 @@ function validarCupo($cupo){
                                         echo '<td style="color:green">Ya estas inscripto. <a href="misInscripciones.php">Ver Aqui.</a></td>';
                                         continue;
                                     }
-                                    if (consultaCaducada($row['fecha'])){
-                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Consulta Expirada)</a></td>';
-                                        continue;
-                                    }
-                                    if (validarCupo($row['cupo'])) {
+                                    if (cupoDisponible($row['cupo'])) {
                                         echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Cupo agotado)</a></td>';
                                         continue;
                                     }
