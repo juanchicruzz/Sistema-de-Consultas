@@ -243,7 +243,7 @@ class ConsultaRepository extends Repository{
 
     function getConsultasByPrimaryKey($idProfesor, $idMateria, $idCarrera){
         $query = "SELECT c.idConsulta, upper(pm.dia) as dia, cupo, c.fecha, c.estado, c.modalidad,
-        ifNull(c.ubicacion <> '' ,c.ubicacion, 'No definido') as ubicacion, 
+        if(c.ubicacion <> '' ,c.ubicacion, 'No definido') as ubicacion, 
         if(c.horarioAlternativo <> '',c.horarioAlternativo, pm.horarioFijo) as horario
         FROM consultas c
         INNER JOIN profesor_materia pm 
@@ -263,7 +263,7 @@ class ConsultaRepository extends Repository{
 
     function getConsultasByPrimaryKeyConInscripciones($idProfesor, $idMateria, $idCarrera){
         $query = "SELECT c.idConsulta, upper(pm.dia) as dia, c.fecha, c.estado, c.modalidad, 
-        ifNull(c.ubicacion <> '' ,c.ubicacion, 'No definido') as ubicacion, 
+        if(c.ubicacion <> '' ,c.ubicacion, 'No definido') as ubicacion, 
         if(c.horarioAlternativo <> '',c.horarioAlternativo, pm.horarioFijo) as horario, 
         c.idprofesor profesor, count(i.idAlumno) as inscriptos
         FROM consultas c
@@ -279,7 +279,7 @@ class ConsultaRepository extends Repository{
 
     function getInfoConsultaById($idConsulta){
         $query = "SELECT c.idConsulta, upper(pm.dia) as dia, c.fecha, c.modalidad, 
-        ifNull(c.ubicacion <> '' ,c.ubicacion, 'No definido') as ubicacion, 
+        if(c.ubicacion <> '' ,c.ubicacion, 'No definido') as ubicacion, 
         if(c.horarioAlternativo <> '',c.horarioAlternativo, pm.horarioFijo) as horario, 
         c.idprofesor profesor 
         FROM consultas c
