@@ -17,9 +17,9 @@ function crearTabla(){
             infoFiltered:   "",
         },
         columnDefs: [
-            { orderable: false, targets: [] }
+            { orderable: false, targets: [0,1,2,3,4,5,6] }
           ],
-          order: [[1, 'asc']]
+          order: [[6, 'asc']]
     })
 });
 }

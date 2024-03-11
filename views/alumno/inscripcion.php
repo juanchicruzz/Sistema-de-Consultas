@@ -39,9 +39,19 @@ function consultaFechaCaducada($fechaConsulta){
     return ($fechaConsulta < $fechaActual);
 }
 
-function cupoDisponible($cupo){
-    return $cupo == 0;
+function menorA24Horas($fechaSQL, $horaSQL)
+{
+    date_default_timezone_set('America/Argentina/Buenos_Aires');
+    $date1 = new DateTime($fechaSQL . " " . $horaSQL);
+    $date2 = new DateTime("now");
+    $diff = $date1->diff($date2);
+    if ($diff->y == 0 && $diff->m == 0 && $diff->d == 0) {
+        // si todo es igual a cero entonces la diferencia solo es de horas
+        // si es menor a 24 no dejamos que se de de baja
+        return ($diff->h < 24);
+    }
 }
+
 ?>
 
 <body>
@@ -79,7 +89,12 @@ function cupoDisponible($cupo){
                         if ($consultas->num_rows == 0) {
                             echo "<tr><td width:100%>No hay consultas disponibles</td></tr>";
                         } else {
-                            while ($row = $consultas->fetch_array()) { ?>
+                            while ($row = $consultas->fetch_array()) {
+                                if (consultaFechaCaducada($row['fecha'])){
+                                    //echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Consulta Expirada)</a></td>';
+                                    continue;
+                                }
+                                ?>
                                 <tr>
                                     <td><?= ($row['fecha']) ?></td>
                                     <td><?= $row['estado'] ?></td>
@@ -87,10 +102,6 @@ function cupoDisponible($cupo){
                                     <td><?= $row['ubicacion'] ?></td>
                                     <td><?= $row['horario'] ?></td>
                                     <?php 
-                                    if (consultaFechaCaducada($row['fecha'])){
-                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Consulta Expirada)</a></td>';
-                                        continue;
-                                    }
                                     if ($row['estado'] == "Bloqueada") {
                                         echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Bloqueada)</a></td>';
                                         continue;
@@ -99,8 +110,8 @@ function cupoDisponible($cupo){
                                         echo '<td style="color:green">Ya estas inscripto. <a href="misInscripciones.php">Ver Aqui.</a></td>';
                                         continue;
                                     }
-                                    if (cupoDisponible($row['cupo'])) {
-                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Cupo agotado)</a></td>';
+                                    if (menorA24Horas($row['fecha'], $row['horario'])) {
+                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> Inscripciones cerradas</a></td>';
                                         continue;
                                     }
                                     ?>

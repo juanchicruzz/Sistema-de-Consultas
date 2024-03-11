@@ -59,7 +59,7 @@ $detalles = $consultaRepository->getDetallesParaInscripcion($profesor, $materia,
         ?>
     <div class="row">
         <div class="col-md-12">
-            <table id="tablaInscripcion" class="display table table-striped table-hover" id="table_id">
+            <table id="tablaInscripcion" class="display table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Fecha</th>
