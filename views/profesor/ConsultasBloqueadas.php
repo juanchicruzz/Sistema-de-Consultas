@@ -15,7 +15,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
 
 ?>
 
-<script src="../tablas/crearTablaInscripcion.js"></script>
+<script src="../tablas/crearTablaConsultasBloqueadas.js"></script>
 <script>
     crearTabla()
 </script>
@@ -65,14 +65,15 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
         <br>
         <div class="row">
             <div class="col-md-12">
-                <table id="tablaInscripcion" class="display table table-striped table-hover" id="table_id">
+                <table id="tablaConsultasBloqueadas" class="display table table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Fecha</th>
+                            <th scope="col">Horario</th>
+                            <th scope="col">Materia</th>
+                            <th scope="col">Carrera</th>
                             <th scope="col">Estado</th>
                             <th scope="col">Modalidad</th>
-                            <th scope="col">Ubicacion</th>
-                            <th scope="col">Horario Alternativo</th>
                             <th scope="col">Desbloquear</th>
                         </tr>
                     </thead>
@@ -85,10 +86,11 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                             while ($row = $consultas->fetch_array()) { ?>
                                 <tr>
                                     <td><?= Utils::convertirFechaFromSQL($row['fecha']) ?></td>
+                                    <td><?= $row['horarioAlternativo'] ?></td>
+                                    <td><?= $row['descripcionMateria'] ?></td>
+                                    <td><?= $row['nombreCarrera'] ?></td>
                                     <td><?= $row['estado'] ?></td>
                                     <td><?= $row['modalidad'] ?></td>
-                                    <td><?= $row['ubicacion'] ?></td>
-                                    <td><?= $row['horarioAlternativo'] ?></td>
                                     <td>
                                         <a href="<?= REDIR_CONTROLLERS ?>/profesor/desbloqConsulta.php?id=<?= $row["idConsulta"] ?>">
                                             <i class=" fa-solid fa-unlock" style="color:green;"></i>

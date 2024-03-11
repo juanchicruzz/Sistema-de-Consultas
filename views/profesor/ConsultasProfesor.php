@@ -24,7 +24,7 @@ $consultas = $consultaRepository->getConsultasByProfesor($_SESSION["id"]);
 
     <div class="row">
         <div class="col-md-12">
-            <table id="tablaConsultasProfesor" class="display table table-striped table-hover" id="table_id">
+            <table id="tablaConsultasProfesor" class="display table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Dia/Hora</th>

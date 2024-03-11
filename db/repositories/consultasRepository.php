@@ -114,11 +114,15 @@ class ConsultaRepository extends Repository{
 
 
     function getConsultasBloqueadasByProfesor($idProfesor){
-        $query = "SELECT c.fecha, c.estado, c.modalidad, 
+        $query = "SELECT pm.horarioFijo, m.descripcionMateria, car.nombreCarrera, c.fecha, c.estado, c.modalidad, 
         if(c.ubicacion <> '',c.ubicacion, 'No aplica') as ubicacion, 
-        if(c.horarioAlternativo <> '' ,c.horarioAlternativo , 'No aplica') as horarioAlternativo, c.idConsulta
-        FROM consultas c
-        WHERE idProfesor = $idProfesor AND estado = 'Bloqueada';";
+        if(c.horarioAlternativo <> '' ,c.horarioAlternativo , horarioFijo) as horarioAlternativo, c.idConsulta
+        FROM consultas c 
+        INNER JOIN materias m ON c.idMateria = m.idMateria 
+        INNER JOIN carreras car ON c.idCarrera = car.idCarrera
+        INNER JOIN profesor_materia pm ON pm.idMateria = c.idMateria AND pm.idCarrera = c.idCarrera AND pm.idProfesor = c.idProfesor
+        WHERE pm.idProfesor = $idProfesor AND estado = 'Bloqueada' 
+        ORDER BY c.fecha ASC ;";
         return $this->getResults($query);
     }
 
@@ -189,7 +193,7 @@ class ConsultaRepository extends Repository{
 
     function updateConsulta($modalidad, $horarioAlt,  $ubicacion, $idConsulta){
         $query = 'UPDATE '.self::ENTITY.' SET '
-            .' modalidad=?, horarioAlternativo=?, ubicacion=?'
+            .' modalidad=?, horarioAlternativo=?, ubicacion=?, estado="Modificada" '
             .' WHERE '.self::IDENTIFIER. '=?'; 
         return $this->executeQuery(
             $query, 
