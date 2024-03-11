@@ -127,7 +127,8 @@ class ConsultaRepository extends Repository{
         if(c.ubicacion <> '',c.ubicacion, 'No aplica') as ubicacion, 
         if(c.horarioAlternativo <> '' ,c.horarioAlternativo , 'No aplica') as horarioAlternativo, c.idConsulta
         FROM consultas c
-        WHERE idProfesor = $idProfesor AND estado <> 'Bloqueada';";
+        WHERE idProfesor = $idProfesor AND estado <> 'Bloqueada'
+        and c.fecha > current_date() ;";
         return $this->getResults($query);
     }
 
@@ -272,6 +273,7 @@ class ConsultaRepository extends Repository{
         LEFT JOIN inscripciones i
             ON c.idConsulta = i.idConsulta
         WHERE c.idCarrera = $idCarrera AND c.idProfesor = $idProfesor AND c.idMateria = $idMateria
+        AND c.fecha > current_date() 
         group by c.idConsulta, dia, c.fecha, c.estado, c.modalidad, ubicacion, horario, profesor;
         ";
         return $this->getResults($query);

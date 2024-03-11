@@ -44,7 +44,7 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
                             <label for="motivo" class="form-label">Motivo de Bloqueo</label>
                             <input id="motivo" name="motivo" class="form-control" type="text" placeholder="Motivo de bloqueo" required autofocus>
                         </div>
-                        <button class="btn btn-danger btn-block" type="submit">Bloquear Consultas</button>
+                        <button class="btn btn-danger btn-block" type="submit" id="bloqSemana_consulta">Bloquear Consultas</button>
                         <input name="idProfesor" type="hidden" value="<?= $_SESSION['id'] ?>">
                     </div>
                 </div>
