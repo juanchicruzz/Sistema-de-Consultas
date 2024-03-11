@@ -36,9 +36,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
     if ($diff->y == 0 && $diff->m == 0 && $diff->d == 0) {
         // si todo es igual a cero entonces la diferencia solo es de horas
         // si es menor a 24 no dejamos que se de de baja
-        if ($diff->h < 24) {
-            return true;
-        }
+        return ($diff->h < 24);
     }
 }
 ?>
@@ -103,7 +101,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                                         continue;
                                     }
                                     if (menorA24Horas($row['fecha'], $row['horario'])) {
-                                        echo "<td style='color:grey;'>No se puede dar de baja. Tiempo restante menor a 24 hs.</td>";
+                                        echo "<td style='color:grey;'>No es posible dar de baja.<br>Tiempo restante menor a 24 hs.</td>";
                                         continue;
                                     }
                                     ?>

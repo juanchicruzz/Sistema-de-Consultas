@@ -35,7 +35,7 @@ class InscripcionRepository extends Repository
     function getInscripcionesByAlumno($idAlumno)
     {
         $query = "SELECT m.descripcionMateria, car.nombreCarrera, pm.dia, c.fecha, c.estado, 
-        c.modalidad, c.ubicacion, ifnull(horarioAlternativo, pm.horarioFijo) as horario, 
+        c.modalidad, c.ubicacion, if(horarioAlternativo <> '', horarioAlternativo, pm.horarioFijo) as horario, 
         i.motivoConsulta, i.fechaInscripcion, i.idConsulta
         FROM inscripciones i
         INNER JOIN consultas c
