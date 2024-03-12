@@ -16,6 +16,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         <li><a href="<?= REDIR_VIEWS ?>/alumno/misInscripciones.php" class="nav-link px-2 link-light">Mis Inscripciones</a></li>
       </ul>
 
+      <div class="dropdown text-end link-light">
+        <?=$_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
+      </div>
       <div class="dropdown text-end">
         <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-fw fa-user rounded-circle" ></i>

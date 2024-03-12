@@ -24,7 +24,10 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         <li><a href="<?= REDIR_VIEWS ?>/admin/validacionDocente.php" class="nav-link px-2 link-light">Validacion Docentes</a></li>
         <li><a href="<?= REDIR_VIEWS ?>/admin/apiV1.php" class="nav-link px-2 link-light">API V1.0</a></li>
       </ul>
-
+      
+      <div class="dropdown text-end">
+        <?= $_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
+      </div>
       <div class="dropdown text-end">
         <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-fw fa-user rounded-circle"></i>
