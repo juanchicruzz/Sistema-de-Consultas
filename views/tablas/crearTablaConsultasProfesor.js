@@ -7,7 +7,7 @@ function crearTabla(){
             info: 'Mostrando pagina _PAGE_ de _PAGES_',
             infoEmpty: 'No hay consultas con ese filtro',
             loadingRecords: "Cargando...",
-            search: "Filtrar por materia, carrera y año:",
+            search: "Filtrar por dia, materia o año:",
             paginate: {
             "first":      "Primero",
             "last":       "Ultimo",

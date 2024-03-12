@@ -81,10 +81,11 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
                 <thead>
                     <tr>
                         <th scope="col">Fecha</th>
+                        <th scope="col">Horario</th>
+                        <th scope="col">Materia</th>
+                        <th scope="col">Carrera</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Modalidad</th>
-                        <th scope="col">Ubicacion</th>
-                        <th scope="col">Horario Alternativo</th>
                         <th scope="col">Bloquear</th>
                     </tr>
                 </thead>
@@ -96,11 +97,12 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
                     } else {
                         while ($row = $consultas->fetch_array()) { ?>
                             <tr>
-                                <td><?= Utils::convertirFechaFromSQL($row['fecha']) ?></td>
+                               <td><?= Utils::convertirFechaFromSQL($row['fecha']) ?></td>
+                                <td><?= $row['horarioAlternativo'] ?></td>
+                                <td><?= $row['descripcionMateria'] ?></td>
+                                <td><?= $row['nombreCarrera'] ?></td>
                                 <td><?= $row['estado'] ?></td>
                                 <td><?= $row['modalidad'] ?></td>
-                                <td><?= $row['ubicacion'] ?></td>
-                                <td><?= $row['horarioAlternativo'] ?></td>
                                 <td>
                                     <a href="consultaBloquear.php?id=<?= $row["idConsulta"] ?>">
                                         <i class="fa-solid fa-lock" style="color:red;"></i>

@@ -127,12 +127,16 @@ class ConsultaRepository extends Repository{
     }
 
     function getConsultasActivasByProfesor($idProfesor){
-        $query = "SELECT c.fecha, c.estado, c.modalidad, 
+        $query = "SELECT pm.horarioFijo, m.descripcionMateria, car.nombreCarrera, c.fecha, c.estado, c.modalidad, 
         if(c.ubicacion <> '',c.ubicacion, 'No aplica') as ubicacion, 
-        if(c.horarioAlternativo <> '' ,c.horarioAlternativo , 'No aplica') as horarioAlternativo, c.idConsulta
+        if(c.horarioAlternativo <> '' ,c.horarioAlternativo , horarioFijo) as horarioAlternativo, c.idConsulta
         FROM consultas c
-        WHERE idProfesor = $idProfesor AND estado <> 'Bloqueada'
-        and c.fecha > current_date() ;";
+        INNER JOIN materias m ON c.idMateria = m.idMateria 
+        INNER JOIN carreras car ON c.idCarrera = car.idCarrera
+        INNER JOIN profesor_materia pm ON pm.idMateria = c.idMateria AND pm.idCarrera = c.idCarrera AND pm.idProfesor = c.idProfesor
+        WHERE pm.idProfesor = $idProfesor AND estado <> 'Bloqueada'
+        and c.fecha > current_date() 
+        ORDER BY c.fecha ASC;";
         return $this->getResults($query);
     }
 
