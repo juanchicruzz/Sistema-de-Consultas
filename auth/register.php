@@ -98,22 +98,25 @@ function isEmailValid($email)
     <meta charset="UTF-8">
     <title>Registrarse</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= REDIR_CSS ?>/register.css" type="text/css">
 </head>
 
 <body>
-    <div class="container" style="padding: 1%;">
-        <div class="row justify-content-center">
+    <div class="container register-form">
+        <div class="row justify-content-center register-form">
             <div class="col-md-6 bg-light shadow">
-                <h2 style="text-align: center;">Registrarse</h2>
-                <p  style="text-align: center;">Por favor complete este formulario para crear su cuenta.</p>
+                <h2 style="text-align: center;">Crear una cuenta</h2>
+                <p  style="text-align: center;">Por favor complete este formulario para registrarse.</p>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input id="nombre" type="text" name="nombre" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="apellido">Apellido</label>
-                        <input id="apellido" type="text" name="apellido" class="form-control">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" type="text" name="nombre" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="apellido">Apellido</label>
+                            <input id="apellido" type="text" name="apellido" class="form-control">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -121,18 +124,20 @@ function isEmailValid($email)
                             <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                         <span class="invalid-feedback"><?php echo $email_err; ?></span>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input id="password" type="password" name="password" class="form-control 
-                        <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
-                        <span class="invalid-feedback"><?php echo $password_err; ?></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmpass">Confirmar Contraseña</label>
-                        <input id="confirmpass" type="password" name="confirm_password" class="form-control 
-                        <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-                        <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="password">Contraseña</label>
+                            <input id="password" type="password" name="password" class="form-control 
+                            <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                        </div>
+                        <div class="col">
+                            <label for="confirmpass">Confirmar Contraseña</label>
+                            <input id="confirmpass" type="password" name="confirm_password" class="form-control 
+                            <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                            <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                        </div>
+                    </div>    
                     <div class="form-group">
                         <label for="legajo">Legajo</label>
                         <input id="legajo" type="text" name="legajo" class="form-control">
