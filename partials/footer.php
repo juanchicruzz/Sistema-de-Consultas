@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 ?>
 
-<div class="bg-primary">
+<div class="footer">
     <div class="container">
         <footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3">
             <p class="col-md-4 mb-0 text-light">UTN FRRo ISI</p>
