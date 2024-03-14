@@ -3,7 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 require_once(DIR_REPOSITORIES . "/usersRepository.php");
 require_once(DIR_EMAIL_HELPER);
     
-$mailConsultas = "juancruzortegacoldorf@gmail.com";
+$mailConsultas = "sistemaconsultasentornos@gmail.com";
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $mail = $_SESSION['email'];
     $EmailHelper = new EmailHelper();
