@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 ?>

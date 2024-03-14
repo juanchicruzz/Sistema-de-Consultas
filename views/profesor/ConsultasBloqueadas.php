@@ -38,7 +38,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                         <input id="EndDate" name="EndDate" class="form-control" type="date" onchange="validaFecha('EndDate','StartDate')" />
                     </div>
                     <button class="btn btn-success btn-block" name="desbloqSemana_consulta" type="submit" id="desbloqSemanaConsulta">Desbloquear Consultas</button>
-                    <input name="idProfesor" hidden value="<?= $_SESSION['id'] ?>">
+                    <input name="idProfesor" type="hidden" hidden value="<?= $_SESSION['id'] ?>">
                 </div>
             </div>
         </form>
@@ -92,7 +92,7 @@ $consultas = $consultaRepository->getConsultasBloqueadasByProfesor($profesor);
                                     <td><?= $row['estado'] ?></td>
                                     <td><?= $row['modalidad'] ?></td>
                                     <td>
-                                        <a href="<?= REDIR_CONTROLLERS ?>/profesor/desbloqConsulta.php?id=<?= $row["idConsulta"] ?>">
+                                        <a aria-label="Boton desbloquear consulta" href="<?= REDIR_CONTROLLERS ?>/profesor/desbloqConsulta.php?id=<?= $row["idConsulta"] ?>">
                                             <i class=" fa-solid fa-unlock" style="color:green;"></i>
                                         </a>
                                     </td>

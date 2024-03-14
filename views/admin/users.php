@@ -62,10 +62,10 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                     <td><?= $row['legajo'] ?></td>
                     <td><?= strtoupper($row['descripcionRol']) ?><?= $validado ?></td>
                     <td>
-                        <a href="editUser.php?id=<?= $row['idUsuario'] ?>" class="btn btn-warning">
+                        <a aria-label="Boton editar usuario" href="editUser.php?id=<?= $row['idUsuario'] ?>" class="btn btn-warning">
                             <i class="fas fa-pen"></i>
                         </a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliminarUsrModal" data-bs-email="<?= $row['email'] ?>" data-bs-idusuario="<?= $row['idUsuario'] ?>">
+                        <button aria-label="Boton eliminar usuario" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliminarUsrModal" data-bs-email="<?= $row['email'] ?>" data-bs-idusuario="<?= $row['idUsuario'] ?>">
                             <i class="fas fa-trash "></i>
                         </button>
                     </td>
@@ -89,7 +89,7 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                         <div class="mb-3">
                             <p><strong> Esta seguro que desea eliminar a :</strong></p>
                             <p id="emailModal" style="font-weight:bold;"></p>
-                            <input hidden id="idUsuarioModal" name="idUsuario">
+                            <input type="hidden" hidden id="idUsuarioModal" name="idUsuario">
                         </div>
                     </div>
                     <div class="modal-footer">

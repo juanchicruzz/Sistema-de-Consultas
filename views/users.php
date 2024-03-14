@@ -49,10 +49,10 @@
                     <td><?=$row['legajo']?></td>
                     <td><?=strtoupper($row['descripcionRol'])?></td>
                     <td>
-                        <a href="editUser.php?id=<?=$row['idUsuario']?>" class="btn btn-warning">
+                        <a aria-label="Boton editar usuario" href="editUser.php?id=<?=$row['idUsuario']?>" class="btn btn-warning">
                             <i class="fas fa-pen"></i>
                         </a>
-                        <a href="../controllers/users/deleteUser.php?id=<?=$row['idUsuario']?>" class="btn btn-danger">
+                        <a aria-label="Boton eliminar usuario" href="../controllers/users/deleteUser.php?id=<?=$row['idUsuario']?>" class="btn btn-danger">
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>

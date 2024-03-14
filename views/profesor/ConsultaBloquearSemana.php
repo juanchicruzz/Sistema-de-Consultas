@@ -104,7 +104,7 @@ $consultas = $consultaRepository->getConsultasActivasByProfesor($profesor);
                                 <td><?= $row['estado'] ?></td>
                                 <td><?= $row['modalidad'] ?></td>
                                 <td>
-                                    <a href="consultaBloquear.php?id=<?= $row["idConsulta"] ?>">
+                                    <a aria-label="Boton bloquear consulta" href="consultaBloquear.php?id=<?= $row["idConsulta"] ?>">
                                         <i class="fa-solid fa-lock" style="color:red;"></i>
                                     </a>
                                 </td>

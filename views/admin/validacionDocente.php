@@ -52,7 +52,7 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                     <td><?= $row['legajo'] ?></td>
                     <td>
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ValidarDocente" data-bs-idDocente="<?= $row['idUsuario'] ?>" data-bs-mailDocente="<?= $row['email'] ?>">
+                        <button aria-label="Boton validar docente" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ValidarDocente" data-bs-idDocente="<?= $row['idUsuario'] ?>" data-bs-mailDocente="<?= $row['email'] ?>">
                             <i class="fa fa-check"></i>
                         </button>
                     </td>
@@ -71,8 +71,8 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
                 </div>
                 <div class="modal-body">
                     <form method="POST" action="<?= REDIR_CONTROLLERS ?>/users/validateUser.php">
-                        <input hidden id="idDocente" name="idDocente">
-                        <input hidden id="mail" name="mail">
+                        <input type="hidden" hidden id="idDocente" name="idDocente">
+                        <input type="hidden" hidden id="mail" name="mail">
                         <div class="mb-3">
                             <p>¿Esta seguro que desea validar a: </p>
                             <p id="mailDocente">?</p>

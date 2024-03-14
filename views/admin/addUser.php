@@ -15,13 +15,13 @@ include(DIR_HEADER);
         <div class="row justify-content-center">
             <div class="col-md-6 border p-3  bg-light ">
                 <div class="form-group mb-3">
-                    <input type="text" name="email" class="form-control" placeholder="Email" autofocus>
+                    <input aria-label="input de texto email" type="text" name="email" class="form-control" placeholder="Email" autofocus>
                 </div>
                 <div class="form-group mb-3">
-                    <input type="text" name="legajo" class="form-control" placeholder="Legajo">
+                    <input aria-label="input de texto legajo" type="text" name="legajo" class="form-control" placeholder="Legajo">
                 </div>
                 <div class="form-group mb-3">
-                    <select name="tipoUsuario" class="form-control">
+                    <select aria-label="seleccionar tipo de usuario" name="tipoUsuario" class="form-control">
                         <option selected>Alumno</option>
                         <option>Profesor</option>
                     </select>

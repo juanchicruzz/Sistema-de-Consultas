@@ -29,7 +29,7 @@ include(DIR_HEADER);
                 </div>
                 <input class="btn btn-success btn-block" type="submit" 
                     name="edit_user" value="Guardar Usuario">
-                <input name="idUsuario" hidden value="<?=$_GET['id']?>">
+                <input name="idUsuario" type="hidden" hidden value="<?=$_GET['id']?>">
             
         </div>
     </div>
