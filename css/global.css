@@ -12,7 +12,9 @@ body{
     background-color: #1A34FF
 }
 
-
+.btn-primary{
+    background-color: #1A34FF;
+}
 
 header{
     background-color: #1A34FF

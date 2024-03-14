@@ -30,10 +30,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
             <div class="row justify-content-center">
                 <div class="col-md-6 border p-3  bg-light ">
                     <div class="form-group mb-3">
-                        <input required type="text" name="asunto" class="form-control" placeholder="Motivo del contacto">
+                        <input required aria-label="Area de texto corto. Motivo del contacto" type="text" name="asunto" class="form-control" placeholder="Motivo del contacto">
                     </div>
                     <div class="form-group mb-3">
-                        <textarea required name="consulta" class="form-control" placeholder="Cuerpo del mail de consulta"></textarea>
+                        <textarea required aria-label="Area de Texto. Cuerpo del mail de consulta" name="consulta" class="form-control" placeholder="Cuerpo del mail de consulta"></textarea>
                     </div>
                     <input class="btn btn-success btn-block" type="submit" value="Enviar">
 

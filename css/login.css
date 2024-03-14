@@ -21,6 +21,14 @@
     font-weight: bold;
 }
 
+.btn-primary {
+    background-color: #1A34FF;
+    border-color: #1A34FF;
+}
+a{
+    color: #1A34FF;
+}
+
 body {
   display: flex;
   align-items: center;

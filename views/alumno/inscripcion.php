@@ -116,7 +116,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                                     }
                                     ?>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inscribirModal" data-bs-fecha="<?= Utils::convertirFechaFromSQL($row['fecha']) ?>" data-bs-modalidad="<?= $row['modalidad'] ?>" data-bs-horario="<?= $row['horario'] ?>" data-bs-idconsulta="<?= $row['idConsulta'] ?>">
+                                        <button type="button" class="btn btn-primary" aria-label="Boton inscribirse a consulta" data-bs-toggle="modal" data-bs-target="#inscribirModal" data-bs-fecha="<?= Utils::convertirFechaFromSQL($row['fecha']) ?>" data-bs-modalidad="<?= $row['modalidad'] ?>" data-bs-horario="<?= $row['horario'] ?>" data-bs-idconsulta="<?= $row['idConsulta'] ?>">
                                             <i class="fas fa-user-check"></i>
                                         </button>
                                     </td>
@@ -138,7 +138,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                             <form method="POST" action="<?= REDIR_CONTROLLERS ?>/inscripciones/generarInscripcion.php">
                                 <div class="modal-body">
                                     <div class="mb-3">
-                                        <input hidden id="idConsultaModal" name="idConsulta">
+                                        <input hidden aria-label="id consulta oculto" id="idConsultaModal" name="idConsulta">
                                         <p id="fechaModal" style="font-weight:bold;"></p>
                                         <p id="modalidadModal" style="font-weight:bold;"></p>
                                         <label for="motivoConsulta" class="col-form-label">Motivo de consulta:</label>

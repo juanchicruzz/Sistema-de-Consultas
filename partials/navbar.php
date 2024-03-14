@@ -20,7 +20,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
         <?=$_SESSION['nombre'] . " " . $_SESSION['apellido'] ?>
       </div>
       <div class="dropdown text-end">
-        <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" aria-label="Dropdown menu opciones usuario" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-fw fa-user rounded-circle" ></i>
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">

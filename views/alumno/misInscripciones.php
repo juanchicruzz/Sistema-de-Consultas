@@ -106,7 +106,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                                     }
                                     ?>
                                     <td>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#darDeBajaModal" data-bs-fecha="<?= $row['dia'] . " " . Utils::convertirFechaFromSQL($row['fecha']) . " - " . $row['horario'] ?>" data-bs-materia="<?= $row['descripcionMateria'] . " (" . $row['nombreCarrera'] . ")" ?>" data-bs-idconsulta="<?= $row['idConsulta'] ?>">
+                                        <button type="button" aria-label="Boton dar de baja inscripcion" class="btn" data-bs-toggle="modal" data-bs-target="#darDeBajaModal" data-bs-fecha="<?= $row['dia'] . " " . Utils::convertirFechaFromSQL($row['fecha']) . " - " . $row['horario'] ?>" data-bs-materia="<?= $row['descripcionMateria'] . " (" . $row['nombreCarrera'] . ")" ?>" data-bs-idconsulta="<?= $row['idConsulta'] ?>">
                                             <i class="fas fa-circle-minus" style="color:red;"></i>
                                         </button>
                                 </tr>
@@ -126,7 +126,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                             <div class="modal-body">
                                 <form method="POST" action="<?= REDIR_CONTROLLERS ?>/inscripciones/bajaInscripcion.php">
                                     <div class="mb-3">
-                                        <input hidden id="idConsultaModal" name="idConsulta">
+                                        <input hidden aria-label="id consulta oculto" id="idConsultaModal" name="idConsulta">
                                         <p id="materiaModal" style="font-weight:bold;"></p>
                                         <p id="fechaModal" style="font-weight:bold;"></p>
                                         <p class="col-form-label">¿Estas seguro que deseas darte de baja?</p>
