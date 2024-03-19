@@ -18,8 +18,9 @@ function crearTabla(){
             infoFiltered:   "",
         },
         columnDefs: [
-            { orderable: false, targets: [1,3,4,5,6] }
-          ]
+            { orderable: false, targets: [0,1,2,3,4,5,6] }
+          ],
+          order: []
     })
 });
 }

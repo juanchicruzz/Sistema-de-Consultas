@@ -80,6 +80,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                             <th class="text-center" scope="col">Modalidad</th>
                             <th class="text-center" scope="col">Ubicacion</th>
                             <th class="text-center" scope="col">Horario</th>
+                            <th class="text-center" scope="col">Cupo Disponible</th>
                             <th class="text-center" scope="col">Inscribirse</th>
                         </tr>
                     </thead>
@@ -101,6 +102,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                                     <td><?= $row['modalidad'] ?></td>
                                     <td><?= $row['ubicacion'] ?></td>
                                     <td><?= $row['horario'] ?></td>
+                                    <td><?= ($row['cupoMaximo']-$row['inscriptos']). "/" .$row['cupoMaximo'] ?></td>
                                     <?php 
                                     if ($row['estado'] == "Bloqueada") {
                                         echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> (Bloqueada)</a></td>';
@@ -112,6 +114,10 @@ function menorA24Horas($fechaSQL, $horaSQL)
                                     }
                                     if (menorA24Horas($row['fecha'], $row['horario'])) {
                                         echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> Inscripciones cerradas</a></td>';
+                                        continue;
+                                    }
+                                    if ($row['cupoMaximo'] == $row['inscriptos']) {
+                                        echo '<td style="color:grey;"><a role="link" aria-disabled="true"><i class="fa-solid fa-lock"></i> Cupo lleno</a></td>';
                                         continue;
                                     }
                                     ?>
