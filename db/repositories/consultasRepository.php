@@ -253,11 +253,15 @@ class ConsultaRepository extends Repository{
     function getConsultasByPrimaryKey($idProfesor, $idMateria, $idCarrera){
         $query = "SELECT c.idConsulta, upper(pm.dia) as dia, cupo, c.fecha, c.estado, c.modalidad,
         if(c.ubicacion <> '' ,c.ubicacion, 'No definido') as ubicacion, 
-        if(c.horarioAlternativo <> '',c.horarioAlternativo, pm.horarioFijo) as horario
+        if(c.horarioAlternativo <> '',c.horarioAlternativo, pm.horarioFijo) as horario,
+        pm.cupo as cupoMaximo, COUNT(i.idConsulta) as inscriptos
         FROM consultas c
         INNER JOIN profesor_materia pm 
 			ON c.idCarrera = pm.idCarrera AND c.idProfesor = pm.idProfesor AND c.idMateria = pm.idMateria
-      WHERE c.idCarrera = $idCarrera AND c.idProfesor = $idProfesor AND c.idMateria = $idMateria";
+        LEFT JOIN inscripciones i 
+            ON c.idConsulta = i.idConsulta  
+      WHERE c.idCarrera = $idCarrera AND c.idProfesor = $idProfesor AND c.idMateria = $idMateria
+      GROUP BY c.idConsulta ";
         return $this->getResults($query);
     }
 

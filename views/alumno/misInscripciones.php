@@ -70,7 +70,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
         <br><br>
         <div class="row">
             <div class="col-md-12">
-                <table id="tablaConsultas" class="display table table-striped table-hover" id="table_id">
+                <table id="tablaConsultas" class="display table table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Materia</th>
@@ -90,7 +90,7 @@ function menorA24Horas($fechaSQL, $horaSQL)
                             while ($row = $inscripciones->fetch_array()) { ?>
                                 <tr>
                                     <td><?= $row['descripcionMateria'] . " (" . $row['nombreCarrera'] . ")" ?></td>
-                                    <td><?= $row['dia'] . " " . Utils::convertirFechaFromSQL($row['fecha']) . " - " . $row['horario'] ?></td>
+                                    <td><?= Utils::convertirFechaFromSQL($row['fecha']) . " - " . $row['horario'] ?></td>
                                     <td><?= $row['estado'] ?></td>
                                     <td><?= $row['modalidad'] ?></td>
                                     <td><?= $row['ubicacion'] ?></td>
