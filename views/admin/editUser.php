@@ -1,8 +1,11 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
-include(DIR_REPOSITORIES . "/usersRepository.php");
-require_once(DIR_SECURITY);
+
+require_once($_SERVER['DOCUMENT_ROOT'] . "/controllers/security.php");
 Security::verifyUserIsAdmin();
+// Solo pueden ingresar los admin a esta vista, si es alumno se redirige a login o index
+require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
+
+include(DIR_REPOSITORIES . "/usersRepository.php");
 
 $UserRepository = new UserRepository();
 $result = $UserRepository->getUserById($_GET['id'])->fetch_array();

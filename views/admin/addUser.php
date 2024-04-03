@@ -1,7 +1,7 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
-require_once(DIR_SECURITY);
+require_once($_SERVER['DOCUMENT_ROOT'] . "/controllers/security.php");
 Security::verifyUserIsAdmin();
+require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
 include(DIR_HEADER);
 ?>
 
