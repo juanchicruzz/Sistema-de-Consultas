@@ -14,6 +14,7 @@ require_once(DIR_REPOSITORIES . "/usersRepository.php");
         $_SESSION['message'] = "Usuario actualizado exitosamente";
         $_SESSION['message_type'] = "warning";
         header("Location: " . REDIR_VIEWS . "/admin/users.php");
+        exit;
     }
 
 ?>

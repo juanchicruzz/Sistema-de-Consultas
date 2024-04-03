@@ -111,7 +111,6 @@ include(DIR_REPOSITORIES . "/usersRepository.php");
         var email = button.getAttribute('data-bs-email');
         var idUsuario = button.getAttribute('data-bs-idusuario');
         EliminarUsrModal.querySelector('#emailModal').textContent = email;
-        EliminarUsrModal.querySelector('#idModal').textContent = idUsuario;
         document.getElementById('idUsuarioModal').value = idUsuario;
     });
 </SCRIPT>

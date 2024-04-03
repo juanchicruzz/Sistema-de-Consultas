@@ -19,7 +19,7 @@
         $_SESSION['message'] = "Usuario creado exitosamente";
         $_SESSION['message_type'] = "success";
         header("Location: " . REDIR_VIEWS .  "/admin/users.php");
-
+        exit;
     }
 
 ?>

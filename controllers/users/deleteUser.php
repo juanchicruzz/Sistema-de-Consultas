@@ -10,8 +10,9 @@ require_once(DIR_REPOSITORIES . "/usersRepository.php");
             die("Delete query failed");
         }
         $_SESSION['message'] = "Usuario eliminado exitosamente";
-        $_SESSION['message_type'] = "secondary";
+        $_SESSION['message_type'] = "success";
         header("Location: " . REDIR_VIEWS . "/admin/users.php");
+        exit;
     }
 
 ?>
