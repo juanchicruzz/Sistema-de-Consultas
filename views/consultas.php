@@ -94,9 +94,20 @@ if (!isset($_GET["carrera"]) && !isset($_GET["a"])) {
                                 <td><?= $row['profesor'] ?></td>
                                 <td><?= $row['descripcionMateria'] ?></td>
                                 <td><?= $row['nombreCarrera'] ?></td>
-                                <td><a aria-label="Boton ingresar a fechas para la consulta" href="<?= REDIR_VIEWS ?>/alumno/inscripcion.php?p=<?= $row['idProfesor'] ?>&m=<?= $row['idMateria'] ?>&c=<?= $row['idCarrera'] ?>">
+                                <?php if($_SESSION['userType'] == 1) { ?>
+                                    <td>
+                                        <a aria-label="Boton ingresar a fechas para la consulta" href="<?= REDIR_VIEWS ?>/alumno/inscripcion.php?p=<?= $row['idProfesor'] ?>&m=<?= $row['idMateria'] ?>&c=<?= $row['idCarrera'] ?>">
                                         <i class="fas fa-user-check"></i>
-                                    </a></td>
+                                        </a>
+                                    </td>
+                                    <?php }  ?>
+                                    <?php if($_SESSION['userType'] == 3) { ?>
+                                    <td>
+                                        <a aria-label="Boton ingresar a fechas para la consulta" aria-disabled="true">
+                                        <i class="fas fa-user-check fa-lock"></i>
+                                        </a>
+                                    </td>
+                                    <?php } ?>
                             </tr>
                     <?php }
                     } ?>
