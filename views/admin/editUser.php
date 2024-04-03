@@ -24,11 +24,11 @@ include(DIR_HEADER);
                     placeholder="Email" autofocus value="<?=$result['email']?>">
                 </div>
                 <div class="form-group mb-3">
-                    <input type="text" name="legajo" class="form-control" 
+                    <input type="number" name="legajo" class="form-control" 
                     placeholder="Legajo" value="<?=$result['legajo']?>">
                 </div>
-                <input class="btn btn-success btn-block" type="submit" 
-                    name="edit_user" value="Guardar Usuario">
+                <input class="btn btn-success btn-block" type="submit" name="edit_user" value="Actualizar Usuario">
+                <input type="button" class="btn btn-secondary btn-block" onclick="history.back()" name="Volver atrás" value="Volver atrás">
                 <input name="idUsuario" type="hidden" hidden value="<?=$_GET['id']?>">
             
         </div>
