@@ -6,20 +6,23 @@
     if(isset($_POST['save_user'])){
         $UserRepository = new UserRepository();
         $RoleRepository = new RoleRepository();
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $password = $_POST['password'];
         $email = $_POST['email'];
         $legajo = $_POST['legajo'];
-        $tipoUsuario = $_POST['tipoUsuario'];
-        $result = $RoleRepository->
-            getRoleByDescription(strtolower($_POST['tipoUsuario']));
-        $idRol = $result->fetch_array()['idRol'];   
-        $result_query = $UserRepository->createSimpleUser($email, $legajo, $idRol); 
-        if(!$result_query){
-            die("Insert query failed");
+        $idRolUsuario = strtolower($_POST["tipoUsuario"]) == "alumno" ? 1 : 2;
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        if ($UserRepository->registerUser($email,$password,$legajo,$idRolUsuario,$nombre,$apellido)) 
+            {
+            $_SESSION['message'] = "Usuario creado exitosamente";
+            $_SESSION['message_type'] = "success";
+            header("Location: " . REDIR_VIEWS .  "/admin/users.php");
+            exit;
+        } else {
+            echo "Algo salio mal, intente nuevamente.";
+            exit;
         }
-        $_SESSION['message'] = "Usuario creado exitosamente";
-        $_SESSION['message_type'] = "success";
-        header("Location: " . REDIR_VIEWS .  "/admin/users.php");
-        exit;
     }
 
 ?>

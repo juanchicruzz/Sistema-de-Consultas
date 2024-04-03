@@ -14,8 +14,17 @@ include(DIR_HEADER);
     <form action="<?= REDIR_CONTROLLERS ?>/users/addUser.php" method="POST">
         <div class="row justify-content-center">
             <div class="col-md-6 border p-3  bg-light ">
+            <div class="form-group mb-3">
+                    <input aria-label="input de texto nombre" type="text" name="nombre" class="form-control" placeholder="Nombre" autofocus>
+                </div>
                 <div class="form-group mb-3">
-                    <input aria-label="input de texto email" type="text" name="email" class="form-control" placeholder="Email" autofocus>
+                    <input aria-label="input de texto apellido" type="text" name="apellido" class="form-control" placeholder="Apellido">
+                </div>
+                <div class="form-group mb-3">
+                    <input aria-label="input de texto contraseña" type="password" name="password" class="form-control" placeholder="Contraseña">
+                </div>
+                <div class="form-group mb-3">
+                    <input aria-label="input de texto email" type="text" name="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group mb-3">
                     <input aria-label="input de texto legajo" type="text" name="legajo" class="form-control" placeholder="Legajo">
@@ -25,7 +34,7 @@ include(DIR_HEADER);
                         <option selected>Alumno</option>
                         <option>Profesor</option>
                     </select>
-                    <small class="form-text text-muted">Modificar sólo en el caso de solicitar una cuenta Docente</small>
+                    <small class="form-text text-muted">Modificar sólo en el caso de crear una cuenta de Profesor</small>
                 </div>
                 <input class="btn btn-success btn-block" type="submit" name="save_user" value="Crear Usuario">
 
