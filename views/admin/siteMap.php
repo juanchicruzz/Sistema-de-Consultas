@@ -21,14 +21,11 @@ require_once(DIR_HEADER); ?>
                 </li>
 
                 <li><a href="<?= REDIR_VIEWS ?>/admin/validacionDocente.php">Validacion Docentes</a></li>
-                <li><a href="<?= REDIR_VIEWS ?>/admin/viewProfile.php">Perfil</a></li>
-                <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="<?= REDIR_VIEWS ?>/viewProfile.php">Perfil</a></li>
                 <li><a href="<?= REDIR_VIEWS ?>/siteMap.php">Mapa del Sitio</a></li>
             </ul>
         </nav>
     </div>
 </body>
-<br><br><br><br><br><br><br><br>
 
 <?php include(DIR_FOOTER); ?>

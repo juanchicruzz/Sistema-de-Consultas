@@ -14,9 +14,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
                 <li><a href="<?= REDIR_VIEWS ?>/profesor/ConsultasProfesor.php">Mis Consultas</a></li>
                 <li><a href="<?= REDIR_VIEWS ?>/profesor/ConsultaBloquearSemana.php">Bloquear Consultas</a></li>
                 <li><a href="<?= REDIR_VIEWS ?>/profesor/ConsultasBloqueadas.php">Consultas Bloqueadas</a></li>
-                <li><a href="#perfil">Perfil</a></li>
-                <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="<?= REDIR_VIEWS ?>/viewProfile.php">Perfil</a></li>
+                <li><a href="<?= REDIR_VIEWS ?>/contacto.php">Contacto</a></li>
                 <li><a href="<?= REDIR_VIEWS ?>/siteMap.php">Mapa del Sitio</a></li>
             </ul>
         </nav>

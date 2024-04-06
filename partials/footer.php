@@ -12,7 +12,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/directories.php");
             </a>
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="<?= REDIR_VIEWS ?>/siteMap.php" class="nav-link px-2 text-light">Mapa del Sitio</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Preguntas Frecuentes</a></li>
                 <li class="nav-item"><a href="<?= REDIR_VIEWS ?>/contacto.php" class="nav-link px-2 text-light">Contacto</a></li>
             </ul>
         </footer>
